@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none !important;
+  list-style: none;
+  background: none;
+  outline: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.app{
+  max-width: 1920px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}

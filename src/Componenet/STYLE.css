@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  font-family: sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+  border: none;
+}
+
+svg {
+  color: blueviolet;
+}
+
+select {
+  border: 1px solid rgb(229, 228, 228);
+  border-radius: 5px;
+}
+
+/* //navbar */
+/* //navbar */
+.navbar {
+  padding: 20px 5%;
+}
+
+.navright {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-group {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(229, 228, 228);
+}
+
+.btn-group input {
+  border: none;
+
+}
+
+/* navbar */
+/* Saitbar */
+
+.saitbar {
+  background: #F9FAFF;
+  width: 15%;
+  min-height: 100vh;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-right: 2px solid rgb(205, 203, 203);
+}
+
+.saitbarright {
+  background: #F9FAFF;
+  width: 15%;
+  min-height: 100vh;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-left: 2px solid rgb(205, 203, 203);
+}
+
+.saitbar ul {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.saitbar ul li a {
+  padding: 5px;
+  font-weight: 500;
+  color: #f57b9e;
+}
+
+.saitbar ul a svg {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: rgba(225, 224, 225, 0.448);
+  transition: all 0.3s;
+}
+
+.saitbar ul a:hover svg {
+  background-color: blueviolet;
+}
+
+.saitbar ul a:hover svg {
+  color: white;
+}
+
+.saitbar ul a:hover {
+  color: blueviolet;
+}
+
+
+
+/* Saitbar */
+/* home */
+
+.home {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeceneter {
+  width: 60%;
+}
+
+/* home */
+/* Dashboar */
+.dashboard {
+  width: 100%;
+  height: auto;
+  padding: 40px;
+}
+
+.proect_cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.proect_card {
+  padding: 20px;
+  background: #F9FAFF;
+}
+
+.proect_card .body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.activity {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
+
+.activity_head {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.activity_head h3 {
+  margin-right: 100px;
+}
+
+.activity_p1 {
+  margin-left: 5px;
+  padding-left: 5px;
+  border-left: 15px solid blue;
+}
+
+.activity_p2 {
+  margin-left: 5px;
+  padding-left: 5px;
+  border-left: 15px solid #FFB9CD;
+}
+
+.pieChart{
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  background: #F9FAFF;
+}
+.donutchart{
+  height: 300px !important;
+}
+.donutchart-innertext{
+  height: 30px !important;
+}
+.chartscircle {
+  display: flex;
+}
+
+.donutchart-legend {
+  display: none;
+  height: 0px !important;
+}
+.pieChartcard{
+  width: 100%;
+  display: grid;
+  grid-template-columns:70%  30%;
+}
+.recharts-responsive-container{
+  height: 100px !important;
+}
+.recharts-surface{
+  width: 300px !important;
+  height: 100px !important;
+}
+.analizcards{
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  background: #F9FAFF;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+}
+.analizcard{
+  display: flex;
+  align-items: center;
+
+}
