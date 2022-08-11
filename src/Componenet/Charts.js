@@ -8,7 +8,7 @@ import { Color } from 'igniteui-react-core';
 
 const reactDonutChartdata = [
   {
-    label: "Invoices Made",
+    label: "Invoices ",
     value: 19,
     color: "blue"
   },
@@ -21,7 +21,7 @@ const reactDonutChartdata = [
 ];
 const reactDonutChartdata2 = [
   {
-    label: "Clients Growth",
+    label: "Clients ",
     value: 78,
     color: "yellow"
   },
@@ -34,7 +34,7 @@ const reactDonutChartdata2 = [
 ];
 const reactDonutChartdata3 = [
   {
-    label: "Projects Done",
+    label: "Projects ",
     value: 65,
     color: "red"
   },

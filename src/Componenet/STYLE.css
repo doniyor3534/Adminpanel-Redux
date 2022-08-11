@@ -116,7 +116,7 @@ select {
 }
 
 .homeceneter {
-  width: 60%;
+  width: 70%;
 }
 
 /* home */
@@ -174,18 +174,21 @@ select {
   border-left: 15px solid #FFB9CD;
 }
 
-.pieChart{
+.pieChart {
   width: 100%;
   height: auto;
   padding: 15px;
   background: #F9FAFF;
 }
-.donutchart{
+
+.donutchart {
   height: 300px !important;
 }
-.donutchart-innertext{
+
+.donutchart-innertext {
   height: 30px !important;
 }
+
 .chartscircle {
   display: flex;
 }
@@ -194,29 +197,70 @@ select {
   display: none;
   height: 0px !important;
 }
-.pieChartcard{
+
+.pieChartcard {
   width: 100%;
   display: grid;
-  grid-template-columns:70%  30%;
+  grid-template-columns: 70% 30%;
 }
-.recharts-responsive-container{
+
+.recharts-responsive-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.recharts-surface {
+  width: 100px !important;
   height: 100px !important;
 }
-.recharts-surface{
-  width: 300px !important;
-  height: 100px !important;
+.recharts-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px !important ;
 }
-.analizcards{
+.analizcards {
   width: 100%;
   height: auto;
   padding: 20px;
   background: #F9FAFF;
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 33% 33% 33%;
 }
-.analizcard{
+
+.analizcard {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
 
+.balans1btn {
+  padding: 10px;
+  margin-right: 5px;
+  background: #5149E4;
+}
+
+.balans2btn {
+  padding: 10px;
+  margin-right: 5px;
+  background: #00A389;
+}
+
+.balans3btn {
+  padding: 10px;
+  margin-right: 5px;
+  background: #FF5B5B;
+}
+
+.dashboardBody{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-top: 10px;
+}
+.contact{
+  background: #F9FAFF;
+  padding: 10px;
 }

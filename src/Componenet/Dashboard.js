@@ -6,8 +6,8 @@ import { Example, Minichart } from './chartsss/lineChart';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import KeyboardControlKeyIcon from '@mui/icons-material/KeyboardControlKey';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import EmailIcon from '@mui/icons-material/Email';
 
 export const datachart = [
     [
@@ -92,43 +92,67 @@ const Dashboard = () => {
                     <div className="pieChartcard">
                         <Chartsccc />
                         <div className="piechartleft">
-                            <Example/>
+                            <Example />
                         </div>
                     </div>
                 </div>
                 <div className="analizcards">
                     <div className="analizcard">
-                        <button><MonetizationOnIcon/></button>
+                        <button className='balans1btn'><MonetizationOnIcon /></button>
                         <div className='dcolumn'>
-                          <p>Total Balance</p>
-                          <h5>$ 40.123</h5>
+                            <p>Total Balance</p>
+                            <h5>$ 40.123</h5>
                         </div>
-                        <div  className='dcolumn'>
+                        {/* <div  className='dcolumn'>
                           <h5>Average from last month</h5>
                           <p><span>+0,5%</span> invoices sent</p>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="analizcard">
-                        <button><ExpandMoreIcon/></button>
-                        <div  className='dcolumn'>
-                          <p>$120.455</p>
-                          <h5>$ 40.123</h5>
+                        <button className='balans2btn'><ExpandMoreIcon /></button>
+                        <div className='dcolumn'>
+                            <p>$120.455</p>
+                            <h5>$ 40.123</h5>
                         </div>
                         <>
-                          <Minichart/>
+                            <Minichart />
                         </>
                     </div>
                     <div className="analizcard">
-                        <button><KeyboardControlKeyIcon/></button>
-                        <div  className='dcolumn'>
-                          <p>$86.455</p>
-                          <h5>Expense</h5>
+                        <button className='balans3btn'><KeyboardControlKeyIcon /></button>
+                        <div className='dcolumn'>
+                            <p>$86.455</p>
+                            <h5>Expense</h5>
                         </div>
                         <>
-                        <Minichart/>
+                            <Minichart />
                         </>
                     </div>
                 </div>
+            </div>
+            <div className="dashboardBody">
+                <div className="contact">
+                    <div className="cantactHead">
+                        <div className="contactTitle">
+                            <h5>Contacts</h5>
+                            <p>You have 456 contacts</p>
+                        </div>
+                        <button>+</button>
+                    </div>
+                    <div className="contactBody">
+                        <img src="" alt="rasm" />
+                        <div className="contactBodyTitle">
+                            <h6>Samantha William</h6>
+                            <p>Marketing Manager</p>
+                        </div>
+                        <div className="contactBodyBtnGroup">
+                            <button><LocalPhoneIcon/></button>
+                            <button><EmailIcon/></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="massege"></div>
             </div>
         </div>
     );

@@ -70,7 +70,7 @@ export const Example =()=> {
       <div style={{ width: '100%' }}>
         <h4>932 Task</h4>
 
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={100}>
           <LineChart
             width={500}
             height={200}
@@ -95,7 +95,7 @@ export const Example =()=> {
         <ResponsiveContainer width="100%" height={200}>
           <LineChart
             width={500}
-            height={200}
+            height={100}
             data={data}
             syncId="anyId"
             margin={{
@@ -147,7 +147,7 @@ const data2 = [
 export const Minichart=()=> {
  
     return (
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width={100} height="100%">
         <BarChart width={150} height={40} data={data}>
           <Bar dataKey="uv" fill="#8884d8" />
         </BarChart>
