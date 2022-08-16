@@ -8,7 +8,12 @@
   list-style: none;
   font-family: sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #5149E4 !important;
+}
 button {
   border: none;
 }
@@ -61,26 +66,91 @@ select {
 .saitbarright {
   background: #F9FAFF;
   width: 15%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
   padding: 30px 0;
   display: flex;
   align-items: center;
   flex-direction: column;
   border-left: 2px solid rgb(205, 203, 203);
 }
-
+.resentActive{
+  padding: 10px;
+}
+.resentActive h6{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+  
+  
+  /* Black */
+  
+  color: #0A0603;
+}
+.serverStatus img{
+  width: 100%;
+}
+.resentcards{
+  display: flex;
+  flex-direction: column;
+}
+.resentcard{
+  display: flex;
+  border-left:#d3d3d3 2px solid;
+  padding-left: 8px;
+  position: relative;
+}
+.resentcard span{
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+.resentcard h6{
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  
+  
+  /* Black */
+  
+  color: #0A0603;
+}
+.resentcard p{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  /* or 186% */
+  
+  
+  /* Gray */
+  
+  color: #8A96B1;
+}
 .saitbar ul {
+  width: 100%;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  padding: 0 ;
 }
 
-.saitbar ul li a {
+.saitbar ul a {
   padding: 5px;
+  padding-left: 30px;
   font-weight: 500;
-  color: #f57b9e;
+  color: blueviolet;
+  width: 100%;
 }
+.saitbar ul a.active {
+  border-right: blueviolet 5px solid;
+}
+
 
 .saitbar ul a svg {
   width: 40px;
@@ -91,12 +161,17 @@ select {
   transition: all 0.3s;
 }
 
-.saitbar ul a:hover svg {
-  background-color: blueviolet;
+.saitbar ul a:hover  {
+  border-right: blueviolet 5px solid;
 }
 
 .saitbar ul a:hover svg {
   color: white;
+  background-color: blueviolet;
+}
+.saitbar ul a.active svg {
+  color: white;
+  background-color: blueviolet;
 }
 
 .saitbar ul a:hover {
@@ -116,17 +191,21 @@ select {
 }
 
 .homeceneter {
-  width: 70%;
+  width: 85%;
 }
 
 /* home */
 /* Dashboar */
 .dashboard {
   width: 100%;
-  height: auto;
-  padding: 40px;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 0px 0px 40px 40px ;
+  display: flex;
 }
-
+.dashboardleft{
+  width: 85%;
+}
 .proect_cards {
   width: 100%;
   display: grid;
@@ -137,6 +216,7 @@ select {
 .proect_card {
   padding: 20px;
   background: #F9FAFF;
+  cursor: pointer;
 }
 
 .proect_card .body {
@@ -258,9 +338,90 @@ select {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  margin-top: 10px;
+  margin-top: 10px; 
+  gap: 15px;
 }
 .contact{
   background: #F9FAFF;
   padding: 10px;
+}
+.cantactHead{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cantactHead button{
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  background-color: #5149E4;
+  color: #FFF;
+}
+.contactBody{
+  display:grid;
+  grid-template-columns: 20% 60% 20%;
+  gap: 15px;
+  margin-top: 5px;
+  align-items: center;
+}
+.contactBody p{
+  font-size: 10px ;
+  color: grey;
+}
+.contactBody img{
+  padding:15px 10px;
+  background-color: rgb(231, 230, 230);
+}
+.contactBodyTitle p{
+  margin-bottom: 0;
+}
+.contactBodyBtnGroup{
+  display: flex;
+  gap: 10px;
+}
+.vievmore{
+  width: 100%;
+  border: #a29dfa 1px solid;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: #c4c1fc 2px 2px 5px;
+}
+.massege{
+  background: #F9FAFF;
+  padding: 10px;
+}
+/* // */
+.userravieCards{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  row-gap: 10px;
+}
+.userraviesCard{
+  background-color: #FFF;
+  padding: 10px;
+}
+.userraviesCardHead{
+  display: flex;
+  gap: 10px;
+}
+.userraviesCardHead img{
+  background-color: rgb(202, 199, 199);
+}
+.userraviesCardBody p{
+   font-size: 10px;
+   color: rgb(177, 177, 177);
+   margin-top: 10px;
+}
+.userraviesCardFooter{
+  display: flex;
+  gap: 15px;
+}
+.userraviesCardFooter .archive{
+  font-size: 12px;
+  color:#f57b9e;
+}
+.userraviesCardFooter .accert{
+  font-size: 12px;
+  color:green;
 }

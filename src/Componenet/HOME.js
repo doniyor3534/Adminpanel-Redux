@@ -27,7 +27,7 @@ const HOME = () => {
                     <Route path="/ticketing" element={<Ticketing />} />
                 </Routes>
             </div>
-            <Saitbarright/>
+          
         </div>
     );
 };

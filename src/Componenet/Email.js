@@ -1,9 +1,12 @@
 import React from 'react';
+import {  Saitbarrightdashboard } from './ALL';
 
 const Email = () => {
+  
     return (
-        <div>
-            Email
+        <div className='dashboard'>
+           hthyhthhhh
+            <Saitbarrightdashboard/>
         </div>
     );
 };
