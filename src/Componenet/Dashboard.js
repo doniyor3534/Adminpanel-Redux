@@ -145,7 +145,7 @@ const Dashboard = () => {
                         </div>
                         {
                             contacts.map((val) => (
-                                <div className="contactBody">
+                                <div className="contactBody" key={val.id}>
                                     <img src={val.img} alt="rasm" />
                                     <div className="contactBodyTitle">
                                         <h6>{val.name}</h6>
@@ -170,7 +170,7 @@ const Dashboard = () => {
                         </div>
                         {
                             contacts.map((val) => (
-                                <div className="contactBody">
+                                <div className="contactBody" key={val.id}>
                                     <img src={val.img} alt="rasm" />
                                     <div className="contactBodyTitle">
                                         <h6>{val.name}</h6>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Saitbar, Saitbarright } from './ALL';
+import { Navbar, Saitbar } from './ALL';
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from './Dashboard';
 import Email from './Email';
