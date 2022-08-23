@@ -108,7 +108,7 @@ export const Saitbarrightdashboard=()=>{
 export const SaitbarrightEmail = () => {
     const { comments, resentActiv } = useSelector(state => state)
     return (
-        <div className=" saitbarright">
+        <div className=" saitbarrightEmail">
             <div className="serverStatus">
                 <img src="./img/Group 16.png" alt="" />
             </div>

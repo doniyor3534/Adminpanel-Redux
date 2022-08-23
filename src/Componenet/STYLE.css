@@ -425,3 +425,77 @@ select {
   font-size: 12px;
   color:green;
 }
+
+/* ///////////////email */
+.emailpage{
+  width: 100%;
+  height:100vh;
+  overflow: scroll;
+  display: flex;
+  justify-content: space-between;
+}
+.saitbarrightEmail{
+  width: 30%;
+  height:100vh;
+  overflow: scroll;
+}
+.emailcenterpage{
+  width: 70%;
+  height: 100vh;
+  overflow: scroll;
+  padding: 20px;
+}
+.emailBlock{
+  display: flex;
+}
+.emailBlockleft{
+  width: 20%;
+  height: 100vh;
+  background-color: #5149E4;
+  padding: 10px;
+}
+.newmail{
+  padding: 10px;
+  background-color: #FFF;
+  width: 100%;
+  font-weight: 600  ;
+}
+.emailBlockleft ul{
+  width: 100%;
+  padding: 0;
+  margin:10px  0;
+}
+.emailBlockleft li{
+  width: 100%;
+  padding: 10px;
+  color: #FFF;
+}
+.emailBlockleft li svg{
+  margin-right: 8px;
+  color: #FFF;
+}
+.emailBlockleft li:hover{
+  background-color: #FFF;
+  color: #000;
+  font-weight: 500;
+}
+.emailBlockleft li:hover svg{
+  color: blueviolet;
+}
+.emailBlockleft .labels{
+  display: flex;
+  flex-direction: column;
+}
+.emailBlockleft .label{
+  color: rgb(142, 140, 140);
+  font-weight: 500;
+}
+.work{
+  color: #3ec6f7;
+}
+.SideProjects{
+  color: #f223f5;
+}
+.Offer{
+  color: #eeee25;
+}
