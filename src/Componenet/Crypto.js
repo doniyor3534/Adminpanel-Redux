@@ -1,69 +1,64 @@
-import React, { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/exports';
+import { Line, Area } from '@ant-design/plots';
+import { CryptoSaitbar } from './ALL';
 
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 
+export const Page = () => {
 
-class CustomizedAxisTick extends PureComponent {
-  render() {
-    const { x, y, stroke, payload } = this.props;
+  const data = [
+    { year: '1991', value: 3, },
+    { year: '1992', value: 4, },
+    { year: '1993', value: 3.5, },
+    { year: '1994', value: 5, },
+    { year: '1995', value: 4.9, },
+    { year: '1996', value: 6, },
+    { year: '1997', value: 7, },
+    { year: '1998', value: 9, },
+    { year: '1999', value: 13, },
+  ];
 
-    return (
-      <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">
-          {payload.value}
-        </text>
-      </g>
-    );
-  }
-}
+  const config = {
+    data,
+    height: 100,
+    width: 150,
+    xField: 'year',
+    yField: 'value',
+    point: {
+      size: 0.5,
+      shape: 'diamond',
+    },
+  };
+  return <Line {...config} />;
+};
 
+export const DemoArea = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    asyncFetch();
+  }, []);
+
+  const asyncFetch = () => {
+    fetch('https://gw.alipayobjects.com/os/bmw-prod/360c3eae-0c73-46f0-a982-4746a6095010.json')
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => {
+        console.log('fetch data failed', error);
+      });
+  };
+  const config = {
+    data,
+    xField: 'timePeriod',
+    yField: 'value',
+    xAxis: {
+      range: [0, 1],
+    },
+  };
+
+  return <Area {...config} />;
+};
 
 
 const Crypto = () => {
@@ -75,18 +70,10 @@ const Crypto = () => {
         <div className="cryptocards">
           {
             cryptocardmass.map((val) => (
-              <div className="cryptoCard" key={val.id}>
+              <div className="cryptoCard" key={val.id} >
                 <h6>{val.name}</h6>
                 <div className="cryptocardbody">
-                  <ResponsiveContainer width={100} height={100} >
-                    <LineChart
-                      data={data}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <Line dataKey="pv" stroke="#8884d8" />
-                      <Line dataKey="uv" stroke="#82ca9d" />
-                    </LineChart>
-                  </ResponsiveContainer>
+                  <Page />
                   <div className="cryptocardbodyrigh">
                     <h6>{val.sena}</h6>
                     <p>{val.foiz}</p>
@@ -96,9 +83,11 @@ const Crypto = () => {
             ))
           }
         </div>
-
+        <div className="cryptokattachart">
+          <DemoArea />
+        </div>
       </div>
-
+      <CryptoSaitbar />
     </div>
   );
 };

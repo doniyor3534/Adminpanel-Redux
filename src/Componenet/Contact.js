@@ -30,7 +30,7 @@ const Contact = () => {
                     comments.map((val) => (
                         <div className="contactcard" key={val.id}>
                             <div className="contactcardHead">
-                                <img src="" alt="rasm" />
+                                <img src={val.img} alt="rasm" />
                                 <StarIcon />
                             </div>
                             <div className="contactardbody">

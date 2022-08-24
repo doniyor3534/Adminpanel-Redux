@@ -6,6 +6,9 @@ import App from './App';
 import { Provider } from "react-redux";
 import { BrowserRouter } from 'react-router-dom';
 import store from './store';
+import 'antd/dist/antd.css'; 
+import 'antv/dist/antv.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
