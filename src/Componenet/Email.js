@@ -20,7 +20,7 @@ const Email = () => {
     return (
         <div className='emailpage'>
             <div className="emailcenterpage">
-                <h1>Email</h1>
+                <h1 className='h1'>Email</h1>
                 <div className="emailBlock">
                     <div className="emailBlockleft">
                         <button className='newmail'>+ New Mail</button>

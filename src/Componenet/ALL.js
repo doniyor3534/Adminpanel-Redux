@@ -20,11 +20,16 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import LinearScaleIcon from '@mui/icons-material/LinearScale';
 import SendIcon from '@mui/icons-material/Send';
-import { Select } from 'antd';
-import { Gauge } from '@ant-design/plots';
+import { Select, Button, Progress, Typography, Col, Radio, Row, Calendar } from 'antd';
+import { Gauge, Liquid } from '@ant-design/plots';
 import { useEffect, useRef } from 'react';
 import { DollarCircleOutlined, EuroCircleOutlined, PayCircleOutlined, PoundOutlined } from '@ant-design/icons';
-import { Liquid } from '@ant-design/plots';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import { Statistic, Avatar, Divider, Tooltip } from 'antd';
+import { red, green } from '@ant-design/colors';
+import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
+
 
 
 
@@ -71,23 +76,23 @@ export const Saitbar = () => {
 // /////////
 const DemoLiquid = () => {
     const config = {
-      percent: 0.25,
-      outline: {
-        border: 4,
-        distance: 8,
-      },
-      wave: {
-        length: 128,
-      },
+        percent: 0.25,
+        outline: {
+            border: 4,
+            distance: 8,
+        },
+        wave: {
+            length: 128,
+        },
     };
     return <Liquid {...config} />;
-  };
+};
 export const Saitbarrightdashboard = () => {
     const { comments, resentActiv } = useSelector(state => state)
     return (
         <div className=" saitbarright">
             <div className="serverStatus">
-                <DemoLiquid/>
+                <DemoLiquid />
             </div>
             <h3>User Ravies</h3>
             <div className="userravieCards">
@@ -313,7 +318,7 @@ export const CryptoSaitbar = () => {
             <h4>Recent Trading</h4>
             <div className="bitcoincards">
                 <div className="bitcoincard">
-                    <DollarCircleOutlined  />
+                    <DollarCircleOutlined />
                     <div className="bitcoinname">
                         <h6>Bitcoin</h6>
                         <p>BTC</p>
@@ -361,8 +366,112 @@ export const CryptoSaitbar = () => {
     )
 }
 // /////////
+export const InvoiceSaitbar = () => {
+    const { comments } = useSelector(state => state)
+    return (
+        <div className="invoiceSaitbar">
+            <h1>Lastest Invoice</h1>
+            <div className="invoiceSaitbarhead">
+                <p>invoice ID</p>
+                <p>Status</p>
+                <p></p>
+            </div>
+            <div className="invoiceSaitbarBody">
+                {
+                    comments.map((val) => (
+                        <div className="invoiceSaitbarCard" key={val.id}>
+                            <div>
+                                <h6>#id {val.id}</h6>
+                                <p>{val.name}</p>
+                            </div>
+                            {
+                                val.status === 'active' ?
+                                    <Button type="danger" danger ghost><CancelIcon className='colorRed' /> UnPaid </Button>
+                                    : <Button type="primary" ghost ><CheckCircleIcon className='colorgreen' /> Paid </Button>
+
+                            }
+                            <div className="invoiceSaitbarCardBtn">
+                                <LinearScaleIcon />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    )
+}
 // /////////
+export const BankingSaitbar = () => {
+    const { Countdown } = Statistic;
+    const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Moment is also OK
+
+
+    const onFinish = () => {
+        console.log('finished!');
+    };
+
+
+    return (
+        <div className="bankingSaitber">
+            <div className="bankingSaitbarCard">
+                <img src="./img/creditcard.png" alt="" />
+            </div>
+            <div className="sevinges">
+                <h4>Savings</h4>
+                <div className="site-statistic-demo-card">
+                    <Countdown title="Countdown" value={deadline} onFinish={onFinish} />
+                    <Countdown title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />
+                </div>
+                <Progress percent={50} steps={3} />
+                <br />
+                <Progress percent={30} steps={5} />
+                <br />
+                <Progress percent={100} steps={5} size="small" strokeColor={green[6]} />
+                <br />
+                <Progress percent={60} steps={5} strokeColor={[green[6], green[6], red[5]]} />
+            </div>
+        </div>
+    )
+}
 // /////////
+export const TicketingSaitbar = () => {
+    const { tickeding } = useSelector(state => state)
+    const onPanelChange = (value, mode) => {
+        console.log(value.format('YYYY-MM-DD'), mode);
+    };
+    return (
+        <div className="tickeingSaitbar">
+            <h1 className="h1">Calendar</h1>
+            <div className="site-calendar-customize-header-wrapper">
+                <Calendar fullscreen={false} onPanelChange={onPanelChange} />
+            </div>
+            <div className="Today">
+                <h1 className="h1 today">Today</h1>
+                {
+                    tickeding.map((val) => (
+                        <div className="todaycard" key={val.id}>
+                            <div className="cardborder" style={{ background: `${val.rangi} ` }} ></div>
+                            <div className="cardCenter">
+                                <p>{new Date().getDay()} /{new Date().getMonth()} /{new Date().getFullYear()} </p>
+                                <h6>{val.name}</h6>
+                            </div>
+                            <div className="cardright">
+                                <Avatar.Group>
+                                    <Avatar src="https://joeschmoe.io/api/v1/random" />
+                                    <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+                                    <Tooltip title="Ant User" placement="top">
+                                        <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+                                    </Tooltip>
+                                    <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
+                                </Avatar.Group>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    )
+}
 // /////////
 // /////////
 // /////////

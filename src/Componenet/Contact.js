@@ -13,7 +13,7 @@ const Contact = () => {
     return (
         <div className='contactpage'>
             <div className="contactTitle">
-                <h1>Contact</h1>
+                <h1 className='h1'>Contact</h1>
                 <div className="contactTitleRight">
                     <select name="newest" id="newest" className='newest' >
                         <option value="newest">newest</option>

@@ -45,20 +45,20 @@ export const Tab1 = () => {
                 {
                     comments.map((val) => (
                         <div className="tab1Card" key={val.id}>
-                                <img src={val.img} alt="" />
+                            <img src={val.img} alt="" />
                             <h5>{val.name}</h5>
                             <p>{val.comment}</p>
                             <div style={{ width: '100%' }} className="tab1cardRange">
-                                <Progress percent={val.foiz} size="small" />
+                                <Progress percent={val.foiz} size="small" status={val.status}  />
                             </div>
                             <div className="tab1CardFooter">
-                                <Badge count={99} offset={[30, 0]}>
+                                <Badge count={99} offset={[30, 0]}  style={{ backgroundColor: '#52c41a' }}>
                                     <button><GroupsIcon /></button>
                                 </Badge>
-                                <Badge count={100} offset={[30, 0]} >
+                                <Badge count={100} offset={[30, 0]} style={{ backgroundColor: 'grey' }} >
                                     <button><ContactlessIcon /></button>
                                 </Badge>
-                                <Badge count={100} offset={[30, 0]}>
+                                <Badge count={100} offset={[30, 0]} style={{ backgroundColor: 'blue' }}>
                                     <button><MessageIcon /></button>
                                 </Badge>
                             </div>
@@ -89,7 +89,7 @@ export const Tab3 = () => {
 const Kanban = () => {
     return (
         <div className='kanban'>
-            <h1>Kanban</h1>
+            <h1 className='h1'>Kanban</h1>
             <div className="kanbanHead">
                 <div className="kanbanHeadLeft">
                     <h6>Project #1  Board</h6>

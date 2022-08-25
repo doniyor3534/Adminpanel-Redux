@@ -44,7 +44,7 @@ const Dashboard = () => {
     return (
         <div className='dashboard'>
             <div className="dashboardleft">
-                <h3>Dashboard</h3>
+                <h1 className='h1'>Dashboard</h1>
                 <div className="proect_cards">
                     <div className="proect_card">
                         <img src="./img/40-bag.svg" alt="" />

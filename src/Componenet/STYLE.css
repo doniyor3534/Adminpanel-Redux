@@ -9,12 +9,27 @@
   font-family: sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.colorRed {
+  color: red;
+}
+
+.colorgreen {
+  color: green;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #5149E4 !important;
+}
+
+.h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  color: #0A0603;
 }
 
 button {
@@ -35,9 +50,12 @@ select {
 .navbar {
   padding: 20px 5%;
 }
-.logo{
-  height: 100px;mix-blend-mode: multiply;
+
+.logo {
+  height: 100px;
+  mix-blend-mode: multiply;
 }
+
 .navright {
   display: flex;
   gap: 20px;
@@ -159,12 +177,12 @@ select {
   font-size: 15px;
   padding-left: 30px;
   font-weight: 500;
-  color: blueviolet;
+  color: rgb(71, 24, 116);
   width: 100%;
 }
 
 .saitbar ul a.active {
-  border-right: blueviolet 5px solid;
+  border-right: rgb(71, 24, 116) 5px solid;
 }
 
 
@@ -178,21 +196,21 @@ select {
 }
 
 .saitbar ul a:hover {
-  border-right: blueviolet 5px solid;
+  border-right: rgb(71, 24, 116) 5px solid;
 }
 
 .saitbar ul a:hover svg {
   color: white;
-  background-color: blueviolet;
+  background-color: rgb(71, 24, 116);
 }
 
 .saitbar ul a.active svg {
   color: white;
-  background-color: blueviolet;
+  background-color: rgb(71, 24, 116);
 }
 
 .saitbar ul a:hover {
-  color: blueviolet;
+  color: rgb(71, 24, 116);
 }
 
 
@@ -234,9 +252,9 @@ select {
   gap: 15px;
   padding: 10px;
 }
-.serverStatus{
 
-}
+.serverStatus {}
+
 .proect_card {
   padding: 20px;
   background: #F9FAFF;
@@ -613,10 +631,12 @@ select {
   display: grid;
   grid-template-columns: 20% 60% 20%;
 }
-.bodyCard > img{
+
+.bodyCard>img {
   width: 80%;
   height: 100%;
 }
+
 .emailBlock .footer {
   width: 100%;
   display: flex;
@@ -656,6 +676,7 @@ select {
 .saitbarrightEmail {
   padding: 10px;
 }
+
 .saitbarrightEmail p {
   font-weight: 400;
   font-size: 18px;
@@ -668,243 +689,288 @@ select {
   color: #8A96B1;
 
 }
-.wekiy{
+
+.wekiy {
   display: flex;
   justify-content: space-between;
 }
-.prewievCards{
+
+.prewievCards {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin: 10px 0;
 }
-.praviewbtngroup svg{
+
+.praviewbtngroup svg {
   color: #8A96B1;
 }
-.prewievCard{
+
+.prewievCard {
   height: 100px;
   border: rgb(190, 190, 190) 1px solid;
 }
-.prewievcardHead{
+
+.prewievcardHead {
   height: 70px;
   background-color: #8A96B1;
 }
-.prewievcardbody{
+
+.prewievcardbody {
   color: #8A96B1;
 }
-.massegeCard{
+
+.massegeCard {
   width: 100%;
   height: 100px;
   border: rgb(180, 178, 178) 1px solid;
-  text-align: center  ;
+  text-align: center;
 }
-.massegeCardhead{
+
+.massegeCardhead {
   height: 70px;
 }
-.priwievFooter{
+
+.priwievFooter {
   display: flex;
   gap: 15px;
   margin: 30px 0;
   justify-content: center;
 }
-.priwievFooter button{
+
+.priwievFooter button {
   padding: 10px 20px;
   background-color: #5149E4;
   color: #FFF;
   margin-left: 20px;
   border-radius: 5px;
 }
-.priwievFooter button:hover{
+
+.priwievFooter button:hover {
   background-color: #3d37b6;
 }
-.priwievFooter button svg{
+
+.priwievFooter button svg {
   color: #FFF;
 }
 
 /* ///////////////////contact */
 
-.contactpage{
+.contactpage {
   width: 100%;
   height: 90vh;
   overflow: scroll;
   padding: 20px;
 }
-.contactTitle{
+
+.contactTitle {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-between;
 }
-.contactTitleRight{
+
+.contactTitleRight {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.newest{
+
+.newest {
   padding: 10px;
-  color:#8A96B1;
+  color: #8A96B1;
 }
-.newbtn{
+
+.newbtn {
   padding: 10px 20px;
   background-color: #5149E4;
   border-radius: 5px;
 }
-.newbtn svg{
+
+.newbtn svg {
   color: #FFF;
 }
-.contactCards{
+
+.contactCards {
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   row-gap: 30px;
   margin-top: 30px;
 }
-.contactcard{
+
+.contactcard {
   padding: 10px;
   background-color: #d3d3d392;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: all 1s linear;
+  transition: all 0.2s ease-in-out;
 }
-.contactcard:hover{
+
+.contactcard:hover {
   box-shadow: #497ae4aa 5px 5px 15px;
 }
-.contactcardHead{
+
+.contactcardHead {
   display: flex;
   justify-content: space-between;
 }
-.contactcardHead > img{
+
+.contactcardHead>img {
   width: 20%;
   height: auto;
 }
-.contactardbody h5{
+
+.contactardbody h5 {
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   color: #0A0603;
 }
-.contactardbody p{
+
+.contactardbody p {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: #8A96B1;
 }
-.contactcadFooter{
+
+.contactcadFooter {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 15px;
   color: #8A96B1;
 }
-.contactcadFooter button{
+
+.contactcadFooter button {
   color: #545861;
 }
 
 
 /* /////////////////cryptoo */
-.cryptopage{
+.cryptopage {
   width: 100%;
   display: grid;
   grid-template-columns: 70% 30%;
   padding: 20px;
 }
-.cryptoHome{
+
+.cryptoHome {
   height: 90vh;
   overflow: scroll;
   padding: 10px;
 }
-.cryptokattachart{
+
+.cryptokattachart {
   width: 100%;
   height: 400px;
 }
-.cryptocards{
-   display: grid;
-   grid-template-columns: repeat(3,1fr);
-   gap: 15px;
+
+.cryptocards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
-.cryptoCard{
+
+.cryptoCard {
   height: 150px;
   padding: 10px;
   background-color: #f7f7f896;
   margin-bottom: 20px;
 }
-.cryptocardbody{
+
+.cryptocardbody {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-between;
 }
-.cryptocardbodyleft{
+
+.cryptocardbodyleft {
   width: 70%;
   overflow: hidden;
 }
-.cryptocardbodyrigh{
+
+.cryptocardbodyrigh {
   display: flex;
   flex-direction: column;
 }
-.cryptocardbody .recharts-legend-item{
+
+.cryptocardbody .recharts-legend-item {
   display: none !important;
 }
-.cryptocardbody .recharts-surface{
+
+.cryptocardbody .recharts-surface {
   display: none !important;
 }
 
 /* //////////////////////cryptoSaitbar */
-.cryptoSaitbar{
+.cryptoSaitbar {
   height: 90vh;
   overflow: scroll;
   padding: 20px;
   background: #F9FAFF;
 }
-.cryptosaitbarhead{
+
+.cryptosaitbarhead {
   display: flex;
   justify-content: space-between;
 }
+
 .cryptochartdacchik {
   width: 100%;
   height: 200px;
   margin-bottom: 30px;
 }
-.bitcoincards{
+
+.bitcoincards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
   row-gap: 10px;
 }
-.bitcoincard{
+
+.bitcoincard {
   padding: 10px;
   background-color: #c0c8db;
-  display: grid; 
+  display: grid;
   grid-template-columns: 30% 40% 30%;
 }
+
 .bitcoincard .anticon {
   padding: 5px;
   background-color: #00A389;
   cursor: pointer;
 }
-.bitcoincard .anticon svg{
+
+.bitcoincard .anticon svg {
   width: 70%;
   height: 90%;
 }
-.bitcoinname{
+
+.bitcoinname {
   padding-left: 10px;
 }
 
 
 /* ///////////////////kanban */
-.kanban{
+.kanban {
   width: 100%;
   height: 90vh;
   overflow: scroll;
   padding: 10px;
 }
-.kanban > h1{
+
+.kanban>h1 {
   font-weight: 600;
 }
-.kanbanHead{
+
+.kanbanHead {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -912,42 +978,49 @@ select {
   border: 1px solid rgb(200, 197, 197);
   border-radius: 5px;
 }
-.kanbanHeadLeft{
+
+.kanbanHeadLeft {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.newProject{
+
+.newProject {
   padding: 6px 10px;
   background-color: #3d37b6;
   color: #FFF;
   border-radius: 5px;
   transition: all .2s linear;
 }
-.newProject:hover{
+
+.newProject:hover {
   background-color: #2e2986;
   transform: scale(1.02);
 }
-.tab1CardFooter{
+
+.tab1CardFooter {
   display: flex;
   gap: 30px;
   margin-top: 20px;
 }
-.tab1CardFooter button{
+
+.tab1CardFooter button {
   padding: 5px;
   background-color: #8A96B1;
   border-radius: 5px;
 }
-.tab1Cards{
+
+.tab1Cards {
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  row-gap:50px;
+  row-gap: 50px;
   margin-top: 50px;
 }
-.tab1Card::after{
+
+.tab1Card::after {
   position: absolute;
   top: -1%;
   left: -1%;
@@ -957,29 +1030,374 @@ select {
   /* background: linear-gradient( to top left, yellow,red,blue); */
   z-index: -1;
 }
-.tab1Card{
-  text-align: center; 
+
+.tab1Card {
+  text-align: center;
   padding: 10px;
   position: relative;
   z-index: 1;
   background: #F9FAFF;
 }
-.tab1Card:hover{
+
+.tab1Card:hover {
   box-shadow: #3d37b666 1px 1px 10px;
 }
-.tab1Card > img{
+
+.tab1Card>img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   transform: translateY(-50%);
   border: 1px solid rgb(206, 205, 205);
 }
-.tab1cardRange{
+
+.tab1cardRange {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 15px 0;
 }
+
+/* /////////////////invoice */
+.invoice {
+  width: 100%;
+  height: 90vh;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.invoiceLeft {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+}
+
+.invoiceLeft>h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+
+
+  /* Black */
+
+  color: #0A0603;
+}
+
+.invoiceLeftPage {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.invoiceLeftPageHead {
+  padding: 40px 20px;
+  background: #5149E4;
+  display: grid;
+  grid-template-columns: 30% 20% 20% 30%;
+  align-items: center;
+}
+
+.invoiceLeftPageHead h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  /* identical to box height */
+
+
+  /* White */
+
+  color: #FFFFFF;
+}
+
+.invoiceLeftPageHead h5 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+
+  /* White */
+
+  color: #FFFFFF;
+}
+
+.invoiceLeftPageHead p {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 34px;
+  /* identical to box height */
+
+
+  /* White */
+
+  color: #FFFFFF;
+}
+
+.withdravbtn {
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 34px;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.withdravbtn:hover {
+  background: rgba(134, 7, 189, 0.627);
+}
+
+.withdravbtn:hover svg {
+  color: #FFF;
+}
+
+.invoiceLeftBody {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.demochart {
+  height: 200px;
+}
+
+.sendivoicetitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+
+  /* Black */
+
+  color: #0A0603;
+  margin: 15px 0;
+}
+
+.sendVoci {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.sendVoci p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8A96B1;
+  margin: 10px 0;
+}
+
+.sendVoci .senvoicebtn {
+  background: #ECEFF7;
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.sendBtn {
+  width: 100%;
+  padding: 15px;
+  background-color: #8781ef;
+  color: #FFF;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+.sendBtn:hover {
+  background-color: #4a44b8;
+}
+
+.sendBtn:hover svg {
+  color: #eeeef5;
+}
+
+.sendvociRight .bntgroup {
+  display: flex;
+  gap: 10px;
+}
+
+
+.invoiceLeftPageRight {
+  background-color: #c0c8db52;
+  padding: 15px;
+}
+
+.invoiceNatija {
+  height: 150px;
+  display: grid;
+  grid-template-columns: 20% 30% 50%;
+  align-items: start;
+}
+
+.invoiceSaitbar {
+  padding: 10px;
+}
+
+.invoiceNatijaChart canvas {
+  height: 150px !important;
+}
+
+.invoiceSaitbarhead {
+  padding: 15px;
+  background: rgba(128, 128, 128, 0.39);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.invoiceSaitbarBody {
+  padding: 10px;
+  height: 90vh;
+  overflow: scroll;
+}
+
+.invoiceSaitbarCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px 0;
+  border-bottom: 1px solid rgb(197, 194, 194);
+}
+
+.invoiceSaitbarCardBtn {
+  text-align: center;
+}
+
+.invoiceSaitbarCardBtn svg {
+  color: grey;
+}
+
+.banking {
+  width: 100%;
+  height: 90vh;
+  overflow: scroll;
+  padding: 15px;
+}
+
+.bankingPage {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 10px;
+}
+
+.profit {
+  padding: 15px;
+  background: #F9FAFF;
+}
+
+.proftiTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.proftiTitleBody {
+  padding-top: 10px;
+}
+
+.lesttest {
+  background: #F9FAFF;
+  margin-top: 10px;
+}
+
+.lestestTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.lestBtnGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.lestBtnGroup svg {
+  color: grey;
+}
+
+.bankingSaitbarCard {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.bankingSaitbarCard img {
+  width: 100%;
+}
+
+
+/* ///////////////ticketing */
+.TTicketing {
+  width: 100%;
+  height: 90vh;
+  overflow: scroll;
+  padding: 15px;
+}
+.tcketingPage{
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 15px;
+}
+.ticketingLeft{
+  margin-top: 20px;
+}
+.ticketingLeftHead{
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+.ticketingCard{
+  padding: 15px;
+  background-color: #F9FAFF;
+}
+.ticketingCard h4{
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+  
+  
+  /* Black */
+  
+  color: #0A0603;
+}
+.tickeingSaitbar{
+  height: 90vh;
+  overflow: scroll;
+  padding: 10px;
+  background-color: #F9FAFF;
+}
+.today{
+  margin: 20px 0;
+}
+.todaycard{
+  height: 100px;
+  padding: 10px;
+  background-color: #FFF;
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: 5% 50% 45%;
+}
+.cardCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 10px;
+}
+
+
+
+
+
+
+
 
 
 

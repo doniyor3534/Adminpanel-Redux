@@ -66,7 +66,7 @@ const Crypto = () => {
   return (
     <div className='cryptopage'>
       <div className="cryptoHome">
-        <h1>Crypto</h1>
+        <h1 className='h1'>Crypto</h1>
         <div className="cryptocards">
           {
             cryptocardmass.map((val) => (
