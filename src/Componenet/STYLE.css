@@ -8,7 +8,19 @@
   list-style: none;
   font-family: sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+.ant-drawer-content-wrapper{
+  width: 40% !important;
+}
+.burgermenu{
+  position: fixed;
+  top: 20px;
+  left: 2px;
+  z-index: 55556;
+  display: none;
+}
+.burgermenu svg{
+  color: grey;
+}
 .colorRed {
   color: red;
 }
@@ -48,16 +60,24 @@ select {
 /* //navbar */
 /* //navbar */
 .navbar {
-  padding: 20px 5%;
+  padding: 10px 5%;
+  background-color: #F9FAFF;
 }
 
 .logo {
   height: 100px;
   mix-blend-mode: multiply;
 }
-
-.navright {
+.navbar{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navright {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
   gap: 20px;
 }
 
@@ -74,10 +94,13 @@ select {
 
 /* navbar */
 /* Saitbar */
-
+.saitbarLg{
+  width: 15%;
+  height: auto;
+}
 .saitbar {
   background: #F9FAFF;
-  width: 15%;
+  width: 100%;
   height: 100vh;
   padding: 30px 0;
   display: flex;
@@ -88,7 +111,7 @@ select {
 
 .saitbarright {
   background: #F9FAFF;
-  width: 15%;
+  width: 100%;
   height: 100vh;
   overflow-y: scroll;
   padding: 30px 0;
@@ -226,7 +249,7 @@ select {
 }
 
 .homeceneter {
-  width: 85%;
+  width: 100%;
 }
 
 /* home */
@@ -237,14 +260,19 @@ select {
   overflow-y: scroll;
   padding: 0px 0px 40px 40px;
   display: flex;
+  margin-top: 20px;
 }
 
 .dashboardleft {
-  width: 85%;
+  width: 100%;
   height: 90vh;
   overflow: scroll;
 }
-
+.dashboardhed{
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
 .proect_cards {
   width: 100%;
   display: grid;
@@ -253,7 +281,6 @@ select {
   padding: 10px;
 }
 
-.serverStatus {}
 
 .proect_card {
   padding: 20px;
@@ -311,9 +338,6 @@ select {
   height: 30px !important;
 }
 
-.chartscircle {
-  display: flex;
-}
 
 .donutchart-legend {
   display: none;
@@ -499,13 +523,13 @@ select {
 }
 
 .saitbarrightEmail {
-  width: 30%;
+  width: 100%;
   height: 90vh;
   overflow: scroll;
 }
 
 .emailcenterpage {
-  width: 70%;
+  width: 100%;
   height: 100vh;
   overflow: scroll;
   padding: 20px;
@@ -623,6 +647,8 @@ select {
   height: 80vh;
   overflow: scroll;
   margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
 }
 
 .emailBlockright .body .bodyCard {
@@ -856,7 +882,7 @@ select {
 .cryptopage {
   width: 100%;
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 100%;
   padding: 20px;
 }
 
@@ -1064,7 +1090,7 @@ select {
   height: 90vh;
   overflow: scroll;
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 100%;
 }
 
 .invoiceLeft {
@@ -1276,7 +1302,7 @@ select {
 
 .bankingPage {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns:100%;
   gap: 10px;
 }
 
@@ -1340,7 +1366,7 @@ select {
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 100%;
   gap: 15px;
 }
 .ticketingLeft{
@@ -1400,4 +1426,288 @@ select {
 
 
 
+/* /////////////////////////media400 */
+@media(max-width:400px){
+  .burgermenu{
+    position: fixed;
+    top: 20px;
+    left: 2px;
+    z-index: 55556;
+    display: inline-block;
+  }
+  .h1 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0A0603;
+  }
+  .ant-drawer-content-wrapper{
+    width: 60% !important;
+  }
+  .logo {
+    height: 50px;
+    mix-blend-mode: multiply;
+  }
+  
+  .navright {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .btn-group {
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(229, 228, 228);
+  }
+  
+  .btn-group input {
+    border: none;
+  
+  }
+ .navbar{
+  display: flex;
+ }
+ .navbar-brand{
+  width: 60%;
+  font-size: 10px;
+ }
+.btn-group{
+  width: 100%;
+}
 
+
+
+
+
+
+
+
+  .homeceneter{
+    width: 100%;
+  }
+  
+/* Saitbar */
+
+.saitbarLg{
+  display: none;
+}
+.saitbar {
+  background: #F9FAFF;
+  width: 100%;
+}
+
+.saitbarright {
+  background: #F9FAFF;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-left: 2px solid rgb(205, 203, 203);
+}
+
+.resentActive {
+  padding: 10px;
+}
+
+.resentActive h6 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  /* identical to box height */
+
+
+  /* Black */
+
+  color: #0A0603;
+}
+
+.serverStatus img {
+  width: 100%;
+}
+
+.resentcards {
+  display: flex;
+  flex-direction: column;
+}
+
+.resentcard {
+  display: flex;
+  border-left: #d3d3d3 2px solid;
+  padding-left: 8px;
+  position: relative;
+}
+
+.resentcard span {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+
+.resentcard h6 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+}
+.saitbar ul a{
+  padding-left: 3px;
+}
+.saitbar ul{
+  margin-top: 5px;
+  row-gap: 0;
+}
+.ant-drawer-body{
+  padding: 0 !important;
+}
+
+/* dashboard */
+.dashboard{
+  padding: 5px 5px 5px 5px;
+  margin-top: 15px;
+}
+.proect_cards{
+  grid-template-columns: repeat(2,1fr);
+}
+.chartscircle{
+  flex-direction: column;
+}
+.pieChartcard{
+  grid-template-columns:100%;
+}
+.activity .recharts-surface{
+  width: 80% !important;
+  margin-top: 55px;
+}
+.analizcards{
+  grid-template-columns: 100%;
+}
+.dashboardBody{
+  width: 100%;
+  grid-template-columns: 100%;
+}
+.contact{
+  width: 100%;
+}
+.contactBody{
+  gap: 5px;
+}
+.cantactHead button{
+  margin-left: 10px;
+}
+
+/* ///email */
+.emailcenterpage{
+  width: 100%;
+  padding: 2px;
+}
+.emailBlock{
+  grid-template-columns: 15% 85%;
+}
+.bodyCard>img{
+  height: 80px;
+}
+.emailBlockleft{
+  width: 100%;
+  overflow: hidden;
+  padding: 2px;
+}
+.emailBlockleft li{
+  display: flex;
+  gap: 30px;
+}
+.emailBlockleft li.active{
+  background-color: transparent;
+  color: #3d37b6;
+}
+.emailBlockleft li:hover{
+  background-color: transparent;
+  color: #3d37b6;
+}
+.newmail{
+  color: transparent;
+  padding: 0;
+}
+.emailBlockright{
+  height: 90vh;
+  overflow: scroll;
+}
+
+/* ////////contact */
+.contactpage{
+  padding: 2px;
+}
+.contactTitle{
+  flex-direction: column;
+}
+.contactTitleRight{
+  justify-content: space-between;
+}
+.contactCards{
+  grid-template-columns: repeat(1,1fr);
+}
+
+/* ////kanban */
+.kanbanHead{
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 5px;
+}
+.kanbanHeadLeft{
+  display: flex;
+  flex-wrap: wrap;
+}
+.tab1Cards{
+  grid-template-columns: repeat(1,1fr);
+}
+/* ///////invoice */
+.invoice{
+  grid-template-columns: 100%;
+}
+.invoiceLeftBody{
+  grid-template-columns: repeat(1,1fr);
+}
+.invoiceLeftPageHead h1{
+  font-size: 30px;
+  line-height: 25px;
+}
+.invoiceLeftPageHead{
+  grid-template-columns: 50% 50%;
+}
+/* //////////Banking */
+.banking{
+  padding: 2px;
+}
+.bankingPage{
+  grid-template-columns: 100%;
+}
+.sevinges{
+  padding: 5px;
+}
+/* //////////Ticketing */
+.tickeingSaitbar{
+  width: 100%;
+}
+.todaycard{
+  overflow: hidden;
+}
+.tcketingPage{
+  grid-template-columns: 100%;
+}
+.ticketingLeftHead{
+  grid-template-columns: repeat(2,1fr);
+}
+.ant-picker-body{
+  width: 100% !important;
+}
+
+
+
+
+}

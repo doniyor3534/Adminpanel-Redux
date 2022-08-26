@@ -20,39 +20,156 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import LinearScaleIcon from '@mui/icons-material/LinearScale';
 import SendIcon from '@mui/icons-material/Send';
-import { Select, Button, Progress, Typography, Col, Radio, Row, Calendar } from 'antd';
+import { Select, Button, Progress, Calendar } from 'antd';
 import { Gauge, Liquid } from '@ant-design/plots';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { DollarCircleOutlined, EuroCircleOutlined, PayCircleOutlined, PoundOutlined } from '@ant-design/icons';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { Statistic, Avatar, Divider, Tooltip } from 'antd';
+import { Statistic, Avatar, Tooltip, Drawer, Affix } from 'antd';
 import { red, green } from '@ant-design/colors';
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import SSelect from '@mui/material/Select';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, } from 'reactstrap';
 
 
 
 
 
-export const Navbar = () => {
+export const Navbarpage = () => {
+    const [collapsed, setCollapsed] = useState(true);
+
+    const toggleNavbar = () => setCollapsed(!collapsed);
+    const [UZ, setUZ] = React.useState('');
+
+    const handleChange = (event) => {
+        setUZ(event.target.value);
+    };
+    const [visible, setVisible] = useState(false);
+    const [placement, setPlacement] = useState('left');
+
+    const showDrawer = () => {
+        setVisible(true);
+    };
+
+    const onClose = () => {
+        setVisible(false);
+    };
+
+    const onChange = (e) => {
+        setPlacement(e.target.value);
+    };
+    const [top, setTop] = useState(10);
+    const [bottom, setBottom] = useState(10);
+    const drownclik=()=>{
+        setTop(top + 10)
+        showDrawer()
+    }
     return (
-        <nav className="navbar navbar-lg-expand ">
-            <div className="navleft">
+        //     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        //     <div class="container-fluid">
+        //     <div className="navleft">
+        //             <div className="btn-group">
+        //                 <button ><SearchIcon /></button>
+        //                 <input type="search" placeholder='search here....' />
+        //             </div>
+        //         </div>
+        //       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        //         <span class="navbar-toggler-icon "></span>
+        //       </button>
+        //       <div class="collapse navbar-collapse" id="navbarNav">
+        //       <div className="navright">
+        //             <Button type="primary" style={{ background: 'white', boxShadow: 'none', border: 'none' }} onClick={showDrawer}>
+        //                 <TextsmsIcon />
+        //             </Button>
+        //             <Button type="primary" style={{ background: 'white', boxShadow: 'none', border: 'none' }} onClick={showDrawer}>
+        //                 <NotificationsActiveIcon />
+        //             </Button>
+
+        //             <FormControl sx={{ m: 1, minWidth: 80 }}>
+        //                 <InputLabel id="demo-select-small">UZB</InputLabel>
+        //                 <SSelect
+        //                     labelId="demo-select-small"
+        //                     id="demo-select-small"
+        //                     value={UZ}
+        //                     onChange={handleChange}
+        //                     autoWidth
+        //                     label="UZ"
+        //                     size='small'
+        //                     style={{height:'40px'}}
+        //                 >
+        //                     <MenuItem value="">
+        //                         <em>None</em>
+        //                     </MenuItem>
+        //                     <MenuItem value={10}>UZB</MenuItem>
+        //                     <MenuItem value={21}>RUS</MenuItem>
+        //                     <MenuItem value={22}>Eng</MenuItem>
+        //                 </SSelect>
+        //             </FormControl>
+        //         </div>
+        //         <Drawer
+        //             title="Basic Drawer"
+        //             placement={placement}
+        //             closable={false}
+        //             onClose={onClose}
+        //             visible={visible}
+        //             key={placement}
+        //         >
+        //             <p>Some contents...</p>
+        //             <p>Some contents...</p>
+        //             <p>Some contents...</p>
+        //         </Drawer>
+        //       </div>
+        //     </div>
+        //   </nav>
+
+        <Navbar color="faded" light className='navabr navbar-expand-lg'>
+                              
+            <div href="" className="me-auto d-flex align-items-center ">
                 <div className="btn-group">
                     <button ><SearchIcon /></button>
                     <input type="search" placeholder='search here....' />
                 </div>
             </div>
-            <div className="navright">
-                <button><TextsmsIcon /></button>
-                <button><NotificationsActiveIcon /></button>
-                <select >
-                    <option value="uz">uz</option>
-                    <option value="uz">uz</option>
-                    <option value="uz">uz</option>
-                </select>
-            </div>
-        </nav>
+            <NavbarToggler onClick={toggleNavbar} className="me-2" />
+            <Collapse isOpen={!collapsed} navbar>
+                <Nav className="navright">
+                    <Button type="primary" style={{ background: 'white', boxShadow: 'none', border: 'none' }} onClick={showDrawer}>
+                        <TextsmsIcon />
+                    </Button>
+                    <Button type="primary" style={{ background: 'white', boxShadow: 'none', border: 'none' }} onClick={showDrawer}>
+                        <NotificationsActiveIcon />
+                    </Button>
+
+                    <FormControl sx={{ m: 1, minWidth: 80 }}>
+                        <InputLabel id="demo-select-small">UZB</InputLabel>
+                        <SSelect
+                            labelId="demo-select-small"
+                            id="demo-select-small"
+                            value={UZ}
+                            onChange={handleChange}
+                            autoWidth
+                            label="UZ"
+                            size='small'
+                            style={{ height: '40px' }}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>UZB</MenuItem>
+                            <MenuItem value={21}>RUS</MenuItem>
+                            <MenuItem value={22}>Eng</MenuItem>
+                        </SSelect>
+                    </FormControl>
+                  
+                </Nav>
+
+            </Collapse>
+        </Navbar>
+
     )
 }
 // ////////////

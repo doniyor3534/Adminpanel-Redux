@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import { Line, Area } from '@ant-design/plots';
 import { CryptoSaitbar } from './ALL';
+import { Button, Drawer } from 'antd';
 
 
 
@@ -63,10 +64,36 @@ export const DemoArea = () => {
 
 const Crypto = () => {
   const { cryptocardmass } = useSelector(state => state)
+  const [visible, setVisible] = useState(false);
+  const [placement, setPlacement] = useState('right');
+  const showDrawer = () => {
+      setVisible(true);
+  };
+  const onClose = () => {
+      setVisible(false);
+  };
+  const onChange = (e) => {
+      setPlacement(e.target.value);
+  };
   return (
     <div className='cryptopage'>
       <div className="cryptoHome">
-        <h1 className='h1'>Crypto</h1>
+        <div className="dashboardhed">
+          <h1 className='h1'>Crypto</h1>
+          <Button type="primary" style={{ marginRight: '30px' }} onClick={showDrawer}>
+            ....
+          </Button>
+          <Drawer
+            title="Basic Drawer"
+            placement={placement}
+            closable={false}
+            onClose={onClose}
+            visible={visible}
+            key={placement}
+          >
+            <CryptoSaitbar />
+          </Drawer>
+        </div>
         <div className="cryptocards">
           {
             cryptocardmass.map((val) => (
@@ -87,7 +114,7 @@ const Crypto = () => {
           <DemoArea />
         </div>
       </div>
-      <CryptoSaitbar />
+      
     </div>
   );
 };

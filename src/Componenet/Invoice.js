@@ -4,7 +4,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import SendIcon from '@mui/icons-material/Send';
 import { InvoiceSaitbar } from './ALL';
 import { Column, Line } from '@ant-design/plots';
-import { Button, Dropdown, Menu } from 'antd';
+import { Button, Drawer, Dropdown, Menu } from 'antd';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
@@ -109,11 +109,36 @@ const DemoLine = () => {
 
 
 const Invoice = () => {
-
+    const [visible, setVisible] = useState(false);
+    const [placement, setPlacement] = useState('right');
+    const showDrawer = () => {
+        setVisible(true);
+    };
+    const onClose = () => {
+        setVisible(false);
+    };
+    const onChange = (e) => {
+        setPlacement(e.target.value);
+    };
     return (
         <div className='invoice'>
             <div className="invoiceLeft">
-                <h1 className='h1'>Invoice</h1>
+                <div className="dashboardhed">
+                    <h1 className='h1'>Invoice</h1>
+                    <Button type="primary" style={{ marginRight: '30px' }} onClick={showDrawer}>
+                        ....
+                    </Button>
+                    <Drawer
+                        title="Basic Drawer"
+                        placement={placement}
+                        closable={false}
+                        onClose={onClose}
+                        visible={visible}
+                        key={placement}
+                    >
+                        <InvoiceSaitbar />
+                    </Drawer>
+                </div>
                 <div className="invoiceLeftPage">
                     <div className="invoiceLeftPageHead">
                         <div className="yourbalanse">
@@ -175,7 +200,7 @@ const Invoice = () => {
                                 </div>
                             </div>
                             <div className="invoiceNatija">
-                            <button><DoneAllIcon /></button>
+                                <button><DoneAllIcon /></button>
                                 <span>
                                     <p>Invoice Completed</p>
                                     <h6>2.678</h6>
@@ -185,7 +210,7 @@ const Invoice = () => {
                                 </div>
                             </div>
                             <div className="invoiceNatija">
-                            <button><DoneAllIcon /></button>
+                                <button><DoneAllIcon /></button>
                                 <span>
                                     <p>Invoice Completed</p>
                                     <h6>2.678</h6>
@@ -195,7 +220,7 @@ const Invoice = () => {
                                 </div>
                             </div>
                             <div className="invoiceNatija">
-                            <button><DoneAllIcon /></button>
+                                <button><DoneAllIcon /></button>
                                 <span>
                                     <p>Invoice Completed</p>
                                     <h6>2.678</h6>
@@ -208,7 +233,7 @@ const Invoice = () => {
                     </div>
                 </div>
             </div>
-            <InvoiceSaitbar />
+           
         </div>
     );
 };

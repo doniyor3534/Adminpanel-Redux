@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Chart } from "react-google-charts";
 import { Chartsccc } from './Charts';
 import { Example, Minichart } from './chartsss/lineChart';
@@ -11,6 +11,10 @@ import EmailIcon from '@mui/icons-material/Email';
 import { useSelector } from 'react-redux';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Saitbarrightdashboard } from './ALL';
+import { Drawer,Button } from 'antd';
+
+
+
 
 export const datachart = [
     [
@@ -40,11 +44,26 @@ export const options = {
 };
 const Dashboard = () => {
     const { contacts } = useSelector(state => state)
-
+    const [visible, setVisible] = useState(false);
+    const [placement, setPlacement] = useState('right');
+    const showDrawer = () => {
+        setVisible(true);
+    };
+    const onClose = () => {
+        setVisible(false);
+    };
+    const onChange = (e) => {
+        setPlacement(e.target.value);
+    };
     return (
         <div className='dashboard'>
             <div className="dashboardleft">
-                <h1 className='h1'>Dashboard</h1>
+                <div className="dashboardhed">
+                    <h1 className='h1'>Dashboard</h1>
+                    <Button type="primary" style={{marginRight:'30px'}} onClick={showDrawer}>
+                        ....
+                    </Button>
+                </div>
                 <div className="proect_cards">
                     <div className="proect_card">
                         <img src="./img/40-bag.svg" alt="" />
@@ -78,6 +97,7 @@ const Dashboard = () => {
                 <div className="activity">
                     <div className="activity_head">
                         <h3>Activity</h3>
+
                         {/* <p className='activity_p1'><span></span> Last Year</p>
                     <p className='activity_p2'><span></span> Last Year</p> */}
                     </div>
@@ -158,7 +178,7 @@ const Dashboard = () => {
                                 </div>
                             ))
                         }
-                        <button className='vievmore'>View More</button>
+                        <Button variant="outlined" style={{ width: '100%', marginTop: '20px' }}>View More</Button>
                     </div>
                     <div className="massege">
                         <div className="cantactHead">
@@ -187,11 +207,20 @@ const Dashboard = () => {
                                 </div>
                             ))
                         }
-                        <button className='vievmore'>View More</button>
+                        <Button variant="outlined" style={{ width: '100%', marginTop: '20px' }}>View More</Button>
                     </div>
                 </div>
             </div>
-            <Saitbarrightdashboard/>
+            <Drawer
+                title="Basic Drawer"
+                placement={placement}
+                closable={false}
+                onClose={onClose}
+                visible={visible}
+                key={placement}
+            >
+                <Saitbarrightdashboard />
+            </Drawer>
         </div>
     );
 };

@@ -13,17 +13,46 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { useSelector } from 'react-redux';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
+import { Button, Drawer } from 'antd';
 
 const Email = () => {
     const { comments } = useSelector(state => state)
-    const [emailpagenation,setEmailpagenation]=useState(1)
+    const [emailpagenation, setEmailpagenation] = useState(1)
+    const [visible, setVisible] = useState(false);
+    const [placement, setPlacement] = useState('right');
+    const showDrawer = () => {
+        setVisible(true);
+    };
+    const onClose = () => {
+        setVisible(false);
+    };
+    const onChange = (e) => {
+        setPlacement(e.target.value);
+    };
     return (
         <div className='emailpage'>
             <div className="emailcenterpage">
-                <h1 className='h1'>Email</h1>
+              
+                <div className="dashboardhed">
+                    <h1 className='h1'>Email</h1>
+                    <Button type="primary" style={{ marginRight: '30px' }} onClick={showDrawer}>
+                        ....
+                    </Button>
+                    <Drawer
+                        title="Basic Drawer"
+                        placement={placement}
+                        closable={false}
+                        onClose={onClose}
+                        visible={visible}
+                        key={placement}
+                    >
+                        <SaitbarrightEmail />?
+                    </Drawer>
+                </div>
                 <div className="emailBlock">
                     <div className="emailBlockleft">
-                        <button className='newmail'>+ New Mail</button>
+                        <button className='newmail'><ControlPointIcon />  </button>
                         <ul>
                             <li className='active'> <BrandingWatermarkIcon /> inbox 99</li>
                             <li> <SendIcon />Sent</li>
@@ -50,64 +79,64 @@ const Email = () => {
                     </div>
                     <div className="emailBlockright">
                         <div className="head">
-                            <h6 className={emailpagenation===1?'active':''} onClick={()=>setEmailpagenation(1)}> <BrandingWatermarkIcon />Primary</h6>
-                            <h6 className={emailpagenation===2?'active':''} onClick={()=>setEmailpagenation(2)}> <GroupsIcon /> Social</h6>
-                            <h6 className={emailpagenation===3?'active':''} onClick={()=>setEmailpagenation(3)}>  <CreditCardIcon />Promotion</h6>
+                            <h6 className={emailpagenation === 1 ? 'active' : ''} onClick={() => setEmailpagenation(1)}> <BrandingWatermarkIcon />Primary</h6>
+                            <h6 className={emailpagenation === 2 ? 'active' : ''} onClick={() => setEmailpagenation(2)}> <GroupsIcon /> Social</h6>
+                            <h6 className={emailpagenation === 3 ? 'active' : ''} onClick={() => setEmailpagenation(3)}>  <CreditCardIcon />Promotion</h6>
                         </div>
                         <div className="body">
                             {
-                               emailpagenation===1?
-                               comments.map((val) => (
-                                <div className="bodyCard" key={val.id}> 
-                                    <img src={val.img} alt="rasm" />
-                                    <div className="bodycardTitle">
-                                        <h6>{val.name}</h6>
-                                        <p>{val.comment}</p>
-                                    </div>
-                                    <div className="bodycardright">
-                                        <p>1h</p>
-                                        <div className="bodycardrightBtnGroup">
-                                            <StarIcon />
-                                            <AttachFileIcon />
+                                emailpagenation === 1 ?
+                                    comments.map((val) => (
+                                        <div className="bodyCard" key={val.id}>
+                                            <img src={val.img} alt="rasm" />
+                                            <div className="bodycardTitle">
+                                                <h6>{val.name}</h6>
+                                                <p>{val.comment}</p>
+                                            </div>
+                                            <div className="bodycardright">
+                                                <p>1h</p>
+                                                <div className="bodycardrightBtnGroup">
+                                                    <StarIcon />
+                                                    <AttachFileIcon />
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            ))
-                            : emailpagenation===2?
-                            comments.map((val) => (
-                                <div className="bodyCard" key={val.id}> 
-                                    <img src={val.img} alt="rasm" />
-                                    <div className="bodycardTitle">
-                                        <h6>{val.name}</h6>
-                                        <p>{val.comment}</p>
-                                    </div>
-                                    <div className="bodycardright">
-                                        <p>2h</p>
-                                        <div className="bodycardrightBtnGroup">
-                                            <StarIcon />
-                                            <AttachFileIcon />
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                            :emailpagenation===3?
-                            comments.map((val) => (
-                                <div className="bodyCard" key={val.id}> 
-                                    <img src={val.img} alt="rasm" />
-                                    <div className="bodycardTitle">
-                                        <h6>{val.name}</h6>
-                                        <p>{val.comment}</p>
-                                    </div>
-                                    <div className="bodycardright">
-                                        <p>3h</p>
-                                        <div className="bodycardrightBtnGroup">
-                                            <StarIcon />
-                                            <AttachFileIcon />
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                            :'ddddddd'
+                                    ))
+                                    : emailpagenation === 2 ?
+                                        comments.map((val) => (
+                                            <div className="bodyCard" key={val.id}>
+                                                <img src={val.img} alt="rasm" />
+                                                <div className="bodycardTitle">
+                                                    <h6>{val.name}</h6>
+                                                    <p>{val.comment}</p>
+                                                </div>
+                                                <div className="bodycardright">
+                                                    <p>2h</p>
+                                                    <div className="bodycardrightBtnGroup">
+                                                        <StarIcon />
+                                                        <AttachFileIcon />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))
+                                        : emailpagenation === 3 ?
+                                            comments.map((val) => (
+                                                <div className="bodyCard" key={val.id}>
+                                                    <img src={val.img} alt="rasm" />
+                                                    <div className="bodycardTitle">
+                                                        <h6>{val.name}</h6>
+                                                        <p>{val.comment}</p>
+                                                    </div>
+                                                    <div className="bodycardright">
+                                                        <p>3h</p>
+                                                        <div className="bodycardrightBtnGroup">
+                                                            <StarIcon />
+                                                            <AttachFileIcon />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))
+                                            : 'ddddddd'
                             }
                         </div>
                         <div className="footer">
@@ -120,7 +149,6 @@ const Email = () => {
                     </div>
                 </div>
             </div>
-            <SaitbarrightEmail />
         </div>
     );
 };
