@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import { ADD, DEL, Reytingfun } from '../redux/action/Action';
-import { Modal, Cascader, DatePicker, Form, Input, InputNumber, Radio, Select, Switch, TreeSelect, Button, message, Upload } from 'antd';
+import { Modal, Cascader, DatePicker, Form, Input, InputNumber, Radio, Select, Switch, TreeSelect, Button, message, Upload,Empty  } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import { UploadOutlined } from '@ant-design/icons';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -24,6 +24,7 @@ const Contact = () => {
         id: null,
         name: '',
         comment: '',
+        email: '',
         foiz: '',
         img: '',
         narx: null,
@@ -100,8 +101,9 @@ const Contact = () => {
                 </div>
             </div>
             <div className="contactCards">
-
+                 
                 {
+                    comments.length >0 ?
                     comments.map((val) => (
                         <div className="contactcard" key={val.id}>
                             <div className="contactcardHead">
@@ -123,24 +125,31 @@ const Contact = () => {
                                 <h5>{val.name}</h5>
                                 <p>iOS Programmer</p>
                             </div>
+                            <h5 className='contactEmailP' >{val.email}</h5>
+                            <h5 className='contactEmailP' >+998-{val.tel}</h5>
                             <div className="contactCardBody">
                                 <div className="contactcadFooter">
                                     <button><HomeRepairServiceIcon /> Astraq Companies</button>
                                     <button><CallIcon /> +012 345 689</button>
-                                    <button><EmailIcon /> image.png</button>
                                 </div>
                                 <div className="contactcadFooter">
                                     <button><DeleteIcon style={{ color: 'red' ,cursor:'pointer'}} onClick={()=>deletFun(val.id)} /></button>
+                                    <button><EmailIcon /> image.png</button>
                                 </div>
                             </div>
                         </div>
                     ))
+                    : <div className="noPage">
+                        <Empty />
+                    </div>
                 }
             </div>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <form onSubmit={send} >
                     <label htmlFor="Name">Name</label>
                     <input type="text" className='form-control  my-2' placeholder='Name' name='name' onChange={inputfun} value={input.name} />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" className='form-control  my-2' placeholder='Email' name='email' onChange={inputfun} value={input.email} />
                     <label htmlFor="commint" >Commint</label>
                     <input type="text" className='form-control  my-2' placeholder='commint' name='comment' onChange={inputfun} value={input.comment} />
                     <label htmlFor="Foiz">Foiz</label>

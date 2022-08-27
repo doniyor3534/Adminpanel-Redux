@@ -880,7 +880,14 @@ select {
   line-height: 17px;
   color: #8A96B1;
 }
-
+.noPage{
+  width: 100%;
+  height: auto;
+}
+.contactEmailP{
+  color: #c0c8db;
+  margin: 10px 0;
+}
 .contactcadFooter {
   display: flex;
   flex-direction: column;
