@@ -20,7 +20,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import LinearScaleIcon from '@mui/icons-material/LinearScale';
 import SendIcon from '@mui/icons-material/Send';
-import { Select, Button, Progress, Calendar } from 'antd';
+import { Select, Button, Progress, Calendar, AutoComplete, Input } from 'antd';
 import { Gauge, Liquid } from '@ant-design/plots';
 import React, { useEffect, useRef, useState } from 'react';
 import { DollarCircleOutlined, EuroCircleOutlined, PayCircleOutlined, PoundOutlined } from '@ant-design/icons';
@@ -41,33 +41,75 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, } from 'rea
 
 export const Navbarpage = () => {
     const [collapsed, setCollapsed] = useState(true);
-
     const toggleNavbar = () => setCollapsed(!collapsed);
     const [UZ, setUZ] = React.useState('');
-
     const handleChange = (event) => {
         setUZ(event.target.value);
     };
     const [visible, setVisible] = useState(false);
     const [placement, setPlacement] = useState('left');
-
     const showDrawer = () => {
         setVisible(true);
     };
-
     const onClose = () => {
         setVisible(false);
     };
-
     const onChange = (e) => {
         setPlacement(e.target.value);
     };
     const [top, setTop] = useState(10);
     const [bottom, setBottom] = useState(10);
-    const drownclik=()=>{
+    const drownclik = () => {
         setTop(top + 10)
         showDrawer()
     }
+    // /////////search//
+    const renderTitle = (title) => (
+        <span>
+            {title}
+            <a
+                style={{
+                    float: 'right',
+                }}
+                href="https://www.google.com/search?q=antd"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                more
+            </a>
+        </span>
+    );
+    const renderItem = (title, count) => ({
+        value: title,
+        label: (
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                }}
+            >
+                {title}
+                <span>
+                    <UserOutlined /> {count}
+                </span>
+            </div>
+        ),
+    });
+
+    const options = [
+        {
+            label: renderTitle('Dashboard'),
+            options: [renderItem('Dashboard', 10000), renderItem('Contact', 10600)],
+        },
+        {
+            label: renderTitle('Emaiclpage'),
+            options: [renderItem('Emaiclpage', 60100), renderItem('Crypto', 30010)],
+        },
+        {
+            label: renderTitle('Invoice'),
+            options: [renderItem('Invoice', 100000)],
+        },
+    ];
     return (
         //     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         //     <div class="container-fluid">
@@ -127,11 +169,19 @@ export const Navbarpage = () => {
         //   </nav>
 
         <Navbar color="faded" light className='navabr navbar-expand-lg'>
-                              
+
             <div href="" className="me-auto d-flex align-items-center ">
                 <div className="btn-group">
-                    <button ><SearchIcon /></button>
-                    <input type="search" placeholder='search here....' />
+                    <AutoComplete
+                        dropdownClassName="certain-category-search-dropdown"
+                        dropdownMatchSelectWidth={500}
+                        style={{
+                            width: 200,
+                        }}
+                        options={options}
+                    >
+                        <Input size="small" style={{background:'transparent'}} placeholder="input here" />
+                    </AutoComplete>
                 </div>
             </div>
             <NavbarToggler onClick={toggleNavbar} className="me-2" />
@@ -164,7 +214,7 @@ export const Navbarpage = () => {
                             <MenuItem value={22}>Eng</MenuItem>
                         </SSelect>
                     </FormControl>
-                  
+
                 </Nav>
 
             </Collapse>

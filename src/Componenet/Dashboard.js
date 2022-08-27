@@ -159,9 +159,9 @@ const Dashboard = () => {
                         <div className="cantactHead">
                             <div className="contactTitle">
                                 <h5>Contacts</h5>
-                                <p>You have 456 contacts</p>
+                                <h4>You have <b><sup style={{color:'green'}}>{contacts.length}</sup></b> contacts</h4>
                             </div>
-                            <button>+</button>
+                           
                         </div>
                         {
                             contacts.map((val) => (
@@ -184,9 +184,9 @@ const Dashboard = () => {
                         <div className="cantactHead">
                             <div className="contactTitle">
                                 <h5>Contacts</h5>
-                                <p>You have 456 contacts</p>
+                                <h4>You have <b><sup style={{color:'green'}}>{contacts.length}</sup></b> contacts</h4>
                             </div>
-                            <button>+</button>
+                            
                         </div>
                         {
                             contacts.map((val) => (
