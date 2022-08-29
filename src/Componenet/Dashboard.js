@@ -8,10 +8,11 @@ import KeyboardControlKeyIcon from '@mui/icons-material/KeyboardControlKey';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Saitbarrightdashboard } from './ALL';
-import { Drawer,Button } from 'antd';
+import { Drawer, Button, Modal } from 'antd';
+import { Mailfun } from '../redux/action/Action';
 
 
 
@@ -44,6 +45,7 @@ export const options = {
 };
 const Dashboard = () => {
     const { contacts } = useSelector(state => state)
+    const dispatch=useDispatch()
     const [visible, setVisible] = useState(false);
     const [placement, setPlacement] = useState('right');
     const showDrawer = () => {
@@ -55,12 +57,33 @@ const Dashboard = () => {
     const onChange = (e) => {
         setPlacement(e.target.value);
     };
+    //////////////////modal tel//
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [modaltel, setModaltel] = useState({tel:''});
+    const showModal = (val) => {
+        setIsModalVisible(true);
+        setModaltel(val)
+    };
+    const showModalemail = (val) => {
+        setIsModalVisible(true);
+        setModaltel(val)
+    };
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+    // /////////////////
+    const mailclick=(id)=>{
+         dispatch(Mailfun(id))
+    }
     return (
         <div className='dashboard'>
             <div className="dashboardleft">
                 <div className="dashboardhed">
                     <h1 className='h1'>Dashboard</h1>
-                    <Button type="primary" style={{marginRight:'30px'}} onClick={showDrawer}>
+                    <Button type="primary" style={{ marginRight: '30px' }} onClick={showDrawer}>
                         ....
                     </Button>
                 </div>
@@ -159,9 +182,9 @@ const Dashboard = () => {
                         <div className="cantactHead">
                             <div className="contactTitle">
                                 <h5>Contacts</h5>
-                                <h4>You have <b><sup style={{color:'green'}}>{contacts.length}</sup></b> contacts</h4>
+                                <h4>You have <b><sup style={{ color: 'green' }}>{contacts.length}</sup></b> contacts</h4>
                             </div>
-                           
+
                         </div>
                         {
                             contacts.map((val) => (
@@ -172,8 +195,8 @@ const Dashboard = () => {
                                         <p>{val.title}</p>
                                     </div>
                                     <div className="contactBodyBtnGroup">
-                                        <button><LocalPhoneIcon /></button>
-                                        <button><EmailIcon /></button>
+                                        <button  onClick={()=>showModal(val.tel)} ><LocalPhoneIcon /></button>
+                                        <button  onClick={()=>showModalemail(val.email)}><EmailIcon /></button>
                                     </div>
                                 </div>
                             ))
@@ -184,9 +207,9 @@ const Dashboard = () => {
                         <div className="cantactHead">
                             <div className="contactTitle">
                                 <h5>Contacts</h5>
-                                <h4>You have <b><sup style={{color:'green'}}>{contacts.length}</sup></b> contacts</h4>
+                                <h4>You have <b><sup style={{ color: 'green' }}>{contacts.length}</sup></b> contacts</h4>
                             </div>
-                            
+
                         </div>
                         {
                             contacts.map((val) => (
@@ -201,7 +224,7 @@ const Dashboard = () => {
                                             val.messege ?
                                                 <button><DoneAllIcon /></button>
                                                 :
-                                                <button><EmailIcon /></button>
+                                                <button onClick={()=>mailclick(val)} ><EmailIcon /></button>
                                         }
                                     </div>
                                 </div>
@@ -221,6 +244,10 @@ const Dashboard = () => {
             >
                 <Saitbarrightdashboard />
             </Drawer>
+            <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <p>tell ... / Massege...</p>
+                <h1 className='tel'>{modaltel}</h1>
+            </Modal>
         </div>
     );
 };

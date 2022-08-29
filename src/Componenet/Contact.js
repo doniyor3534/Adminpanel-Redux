@@ -134,7 +134,7 @@ const Contact = () => {
                                 </div>
                                 <div className="contactcadFooter">
                                     <button><DeleteIcon style={{ color: 'red' ,cursor:'pointer'}} onClick={()=>deletFun(val.id)} /></button>
-                                    <button><EmailIcon /> image.png</button>
+                                    <button><EmailIcon />massege @gmail...  </button>
                                 </div>
                             </div>
                         </div>

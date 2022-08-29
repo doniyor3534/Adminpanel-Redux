@@ -18,3 +18,14 @@ export const DEL=(data)=>{
         type:Types.delet
     }
 }
+export const Loaderfun=()=>{
+    return{
+        type:Types.loader
+    }
+}
+export const Mailfun=(id)=>{
+    return{
+        payload:id,
+        type:Types.mailclick
+    }
+}

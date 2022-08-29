@@ -8,6 +8,22 @@
   list-style: none;
   font-family: sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.loaderCard{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(142, 140, 140, 0.548);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 555;
+}
+.spinner-border{
+  width: 100px !important;
+  height: 100px !important;
+}
 .ant-modal-close-icon{
   display: none !important;
 }
@@ -220,13 +236,19 @@ select {
   font-weight: 500;
   color: rgb(71, 24, 116);
   width: 100%;
+  border-left: transparent 4px solid;
 }
 
 .saitbar ul a.active {
-  border-right: rgb(71, 24, 116) 5px solid;
+  border-right: rgb(148, 54, 235) 5px solid;
+  border-left: rgb(147, 56, 232) 4px solid;
+  background-color: #3d37b61b;
 }
-
-
+.saitbar ul a:hover {
+  border-right: rgb(144, 55, 227) 5px solid;
+  border-left: rgb(134, 50, 213) 4px solid;
+  background-color: #3d37b61b;
+}
 .saitbar ul a svg {
   width: 40px;
   height: 40px;
@@ -236,9 +258,6 @@ select {
   transition: all 0.3s;
 }
 
-.saitbar ul a:hover {
-  border-right: rgb(71, 24, 116) 5px solid;
-}
 
 .saitbar ul a:hover svg {
   color: white;
@@ -669,7 +688,7 @@ select {
 
 .emailBlockright .body .bodyCard {
   padding: 10px;
-  background-color: #c0c8db;
+  background-color: #F9FaFF;
   display: grid;
   grid-template-columns: 20% 60% 20%;
 }

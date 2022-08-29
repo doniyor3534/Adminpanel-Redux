@@ -1,6 +1,6 @@
 import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
-import { Button, Menu, Tabs, Progress, Badge } from 'antd';
+import { Button, Menu, Tabs, Progress, Badge, Empty } from 'antd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ContactlessIcon from '@mui/icons-material/Contactless';
 import MessageIcon from '@mui/icons-material/Message';
@@ -43,6 +43,7 @@ export const Tab1 = () => {
         <div className="tab1">
             <div className="tab1Cards">
                 {
+                    comments.length>0?
                     comments.map((val) => (
                         <div className="tab1Card" key={val.id}>
                             <img src={val.img} alt="" />
@@ -64,6 +65,7 @@ export const Tab1 = () => {
                             </div>
                         </div>
                     ))
+                    :<Empty/>
                 }
             </div>
         </div>
@@ -72,14 +74,14 @@ export const Tab1 = () => {
 export const Tab2 = () => {
     return (
         <div className="tab1">
-            jjjjjjjjjjj
+            <Empty/>
         </div>
     )
 }
 export const Tab3 = () => {
     return (
         <div className="tab1">
-            jjjjjjjjjjj
+            <Empty/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbarpage, Saitbar } from './ALL';
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from './Dashboard';
@@ -11,10 +11,19 @@ import Banking from './Banking';
 import Ticketing from './Ticketing';
 import { Drawer, BackTop } from 'antd';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useDispatch, useSelector } from 'react-redux';
+import { Loaderfun } from '../redux/action/Action';
 
 
 
 const HOME = () => {
+    const { loader } = useSelector(state => state)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        setTimeout(() => {
+            dispatch(Loaderfun())
+        }, 1000)
+    }, [])
     const [visible, setVisible] = useState(false);
     const [placement, setPlacement] = useState('left');
     const showDrawer = () => {
@@ -26,12 +35,21 @@ const HOME = () => {
     const onChange = (e) => {
         setPlacement(e.target.value);
     };
-  
+    console.log(loader);
     return (
         <div className='home'>
             <div className="saitbarLg">
                 <Saitbar />
             </div>
+            {
+                loader ?
+                    <div className="loaderCard">
+                        <div class="spinner-border text-primary " role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    :''
+            }
             <div className="homeceneter">
                 <button type="primary" className='burgermenu' style={{ marginRight: '10px' }} onClick={showDrawer}>
                     <ArrowForwardIosIcon style={visible ? { transform: 'rotate(180deg)', color: 'red' } : { transform: 'rotate(0deg)', color: 'green' }} />
@@ -59,7 +77,7 @@ const HOME = () => {
             >
                 <Saitbar />
             </Drawer>
-            
+
         </div>
     );
 };
