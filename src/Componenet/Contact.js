@@ -3,18 +3,20 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import AppsIcon from '@mui/icons-material/Apps';
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import StarIcon from '@mui/icons-material/Star';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-import { ADD, DEL, Reytingfun } from '../redux/action/Action';
-import { Modal, Cascader, DatePicker, Form, Input, InputNumber, Radio, Select, Switch, TreeSelect, Button, message, Upload,Empty  } from 'antd';
-import TextArea from 'antd/lib/input/TextArea';
-import { UploadOutlined } from '@ant-design/icons';
+import { ADD, DEL } from '../redux/action/Action';
+import { Modal, Empty } from 'antd';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Card from '@mui/material/Card';
+import { CardActionArea } from '@mui/material';
+
+
+
 
 
 const Contact = () => {
@@ -41,50 +43,55 @@ const Contact = () => {
         setIsModalVisible(false);
     };
     // /////form/////////
-    const [componentSize, setComponentSize] = useState('default');
-    const onFormLayoutChange = ({ size }) => {
-        setComponentSize(size);
-    };
+    // const [ setComponentSize] = useState('default');
+    // const onFormLayoutChange = ({ size }) => {
+    //     setComponentSize(size);
+    // };
     // ///////////upload//////////
-    const props = {
-        action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-        listType: 'picture',
+    // const props = {
+    //     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    //     listType: 'picture',
 
-        beforeUpload(file) {
-            return new Promise((resolve) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
+    //     beforeUpload(file) {
+    //         return new Promise((resolve) => {
+    //             const reader = new FileReader();
+    //             reader.readAsDataURL(file);
 
-                reader.onload = () => {
-                    const img = document.createElement('img');
-                    img.src = reader.result;
+    //             reader.onload = () => {
+    //                 const img = document.createElement('img');
+    //                 img.src = reader.result;
 
-                    img.onload = () => {
-                        const canvas = document.createElement('canvas');
-                        canvas.width = img.naturalWidth;
-                        canvas.height = img.naturalHeight;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0);
-                        ctx.fillStyle = 'red';
-                        ctx.textBaseline = 'middle';
-                        ctx.font = '33px Arial';
-                        ctx.fillText('Ant Design', 20, 20);
-                        canvas.toBlob((result) => resolve(result));
-                    };
-                };
-            });
-        },
-    };
+    //                 img.onload = () => {
+    //                     const canvas = document.createElement('canvas');
+    //                     canvas.width = img.naturalWidth;
+    //                     canvas.height = img.naturalHeight;
+    //                     const ctx = canvas.getContext('2d');
+    //                     ctx.drawImage(img, 0, 0);
+    //                     ctx.fillStyle = 'red';
+    //                     ctx.textBaseline = 'middle';
+    //                     ctx.font = '33px Arial';
+    //                     ctx.fillText('Ant Design', 20, 20);
+    //                     canvas.toBlob((result) => resolve(result));
+    //                 };
+    //             };
+    //         });
+    //     },
+    // };
     // ///////////////////inputfun/////
     const inputfun = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
+    const inputfunImg=(e)=>{
+        setInput({ ...input, img:  URL.createObjectURL(e.target.files[0]) })
+     }
     const send = () => {
         dispatch(ADD({ ...input, id: new Date().getTime() }))
     }
-    const deletFun=(id)=>{
+    const deletFun = (id) => {
         dispatch(DEL(id))
     }
+    
+    console.log();
     return (
         <div className='contactpage'>
             <div className="contactTitle">
@@ -101,47 +108,49 @@ const Contact = () => {
                 </div>
             </div>
             <div className="contactCards">
-                 
+
                 {
-                    comments.length >0 ?
-                    comments.map((val) => (
-                        <div className="contactcard" key={val.id}>
-                            <div className="contactcardHead">
-                                <img src={val.img} alt="rasm" />
-                                <Box
-                                    sx={{
-                                        '& > legend': { mt: 2 },
-                                    }}
-                                >
-                                    <Typography component="legend">Controlled</Typography>
-                                    <Rating
-                                        name="simple-controlled"
-                                        value={val.reyting}
-                                    // onChange={()=>reytincheng(val)}
-                                    />
-                                </Box>
-                            </div>
-                            <div className="contactardbody">
-                                <h5>{val.name}</h5>
-                                <p>iOS Programmer</p>
-                            </div>
-                            <h5 className='contactEmailP' >{val.email}</h5>
-                            <h5 className='contactEmailP' >+998-{val.tel}</h5>
-                            <div className="contactCardBody">
-                                <div className="contactcadFooter">
-                                    <button><HomeRepairServiceIcon /> Astraq Companies</button>
-                                    <button><CallIcon /> +012 345 689</button>
-                                </div>
-                                <div className="contactcadFooter">
-                                    <button><DeleteIcon style={{ color: 'red' ,cursor:'pointer'}} onClick={()=>deletFun(val.id)} /></button>
-                                    <button><EmailIcon />massege @gmail...  </button>
-                                </div>
-                            </div>
+                    comments.length > 0 ?
+                        comments.map((val) => (
+                            <Card className="contactcard" key={val.id}>
+                                <CardActionArea>
+                                    <div className="contactcardHead">
+                                        <img src={val.img} alt="rasm" />
+                                        <Box
+                                            sx={{
+                                                '& > legend': { mt: 2 },
+                                            }}
+                                        >
+                                            <Typography component="legend">Controlled</Typography>
+                                            <Rating
+                                                name="simple-controlled"
+                                                value={val.reyting}
+                                            // onChange={()=>reytincheng(val)}
+                                            />
+                                        </Box>
+                                    </div>
+                                    <div className="contactardbody">
+                                        <h5>{val.name}</h5>
+                                        <p>iOS Programmer</p>
+                                    </div>
+                                    <h5 className='contactEmailP' >{val.email}</h5>
+                                    <h5 className='contactEmailP' >+998-{val.tel}</h5>
+                                    <div className="contactCardBody">
+                                        <div className="contactcadFooter">
+                                            <button><HomeRepairServiceIcon /> Astraq Companies</button>
+                                            <button><CallIcon /> +012 345 689</button>
+                                        </div>
+                                        <div className="contactcadFooter">
+                                            <button><DeleteIcon style={{ color: 'red', cursor: 'pointer' }} onClick={() => deletFun(val.id)} /></button>
+                                            <button><EmailIcon />massege @gmail...  </button>
+                                        </div>
+                                    </div>
+                                </CardActionArea>
+                            </Card>
+                        ))
+                        : <div className="noPage">
+                            <Empty />
                         </div>
-                    ))
-                    : <div className="noPage">
-                        <Empty />
-                    </div>
                 }
             </div>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -155,7 +164,7 @@ const Contact = () => {
                     <label htmlFor="Foiz">Foiz</label>
                     <input type="number" className='form-control my-2' placeholder='...%' name='foiz' onChange={inputfun} value={input.foiz} />
                     <label htmlFor="img">Image</label>
-                    <input type="file" className='form-control my-2' placeholder='img' name='img' onChange={inputfun} value={input.img} />
+                    <input type="file" className='form-control my-2' placeholder='img' name='img' onChange={inputfunImg}  />
                     <label htmlFor="narx">Narx</label>
                     <input type="number" className='form-control my-2' placeholder='narx' name='narx' onChange={inputfun} value={input.narx} />
                     <label htmlFor="tel">Tel</label>

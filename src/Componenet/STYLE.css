@@ -58,6 +58,9 @@
 .colorRed {
   color: red;
 }
+.grey{
+  color: #c0c8db;
+}
 
 .colorgreen {
   color: green;
@@ -678,24 +681,26 @@ select {
 .emailBlockright .body {
   width: 100%;
   height: auto;
-  row-gap: 10px;
+  gap: 5px;
   height: 80vh;
   overflow: scroll;
   margin-top: 15px;
   display: grid;
-  grid-template-columns: repeat(1,1fr);
+  grid-template-columns: repeat(2,1fr);
 }
 
-.emailBlockright .body .bodyCard {
+.emailBlockright .body .bodyCard .bodyCard2{
+  height: 100%;
   padding: 10px;
   background-color: #F9FaFF;
   display: grid;
   grid-template-columns: 20% 60% 20%;
+  text-align: center;
 }
 
 .bodyCard>img {
-  width: 80%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
 }
 
 .emailBlock .footer {
@@ -1089,6 +1094,7 @@ select {
   gap: 30px;
   row-gap: 50px;
   margin-top: 50px;
+  padding: 20px ;
 }
 
 .tab1Card::after {
@@ -1661,9 +1667,11 @@ select {
   grid-template-columns: 20% 80%;
 }
 
-.bodyCard>img{
+.bodyCard  img{
   height: 80px;
+  width: 80px;
 }
+
 .emailBlockleft{
   width: 100%;
   overflow: hidden;
@@ -1721,7 +1729,9 @@ select {
 .tab1Cards{
   grid-template-columns: repeat(2,1fr);
   gap: 5px;
+  padding: 20px ;
 }
+
 /* ///////invoice */
 .invoice{
   grid-template-columns: 100%;

@@ -30,7 +30,7 @@ const initialData = {
     loader:true,
     Emailmassiv:JSON.parse(localStorage.getItem ('emailmassiv'))|| []
 }
-console.log(initialData.Emailmassiv);
+
 const todoRuducers = (state=initialData,{type,payload}) =>{
         switch(type){
              case Types.add:

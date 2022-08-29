@@ -13,7 +13,9 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Saitbarrightdashboard } from './ALL';
 import { Drawer, Button, Modal } from 'antd';
 import { Mailfun } from '../redux/action/Action';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { CardActionArea } from '@mui/material';
 
 
 
@@ -45,21 +47,21 @@ export const options = {
 };
 const Dashboard = () => {
     const { contacts } = useSelector(state => state)
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('right');
+    const [placement] = useState('right');
     const showDrawer = () => {
         setVisible(true);
     };
     const onClose = () => {
         setVisible(false);
     };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
     //////////////////modal tel//
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [modaltel, setModaltel] = useState({tel:''});
+    const [modaltel, setModaltel] = useState({ tel: '' });
     const showModal = (val) => {
         setIsModalVisible(true);
         setModaltel(val)
@@ -75,8 +77,8 @@ const Dashboard = () => {
         setIsModalVisible(false);
     };
     // /////////////////
-    const mailclick=(id)=>{
-         dispatch(Mailfun(id))
+    const mailclick = (id) => {
+        dispatch(Mailfun(id))
     }
     return (
         <div className='dashboard'>
@@ -188,17 +190,21 @@ const Dashboard = () => {
                         </div>
                         {
                             contacts.map((val) => (
-                                <div className="contactBody" key={val.id}>
+                                <Card className="contactBody" key={val.id}>
                                     <img src={val.img} alt="rasm" />
-                                    <div className="contactBodyTitle">
-                                        <h6>{val.name}</h6>
-                                        <p>{val.title}</p>
-                                    </div>
+                                    <CardActionArea >
+                                        <CardContent>
+                                            <div className="contactBodyTitle">
+                                                <h6>{val.name}</h6>
+                                                <p>{val.title}</p>
+                                            </div>
+                                        </CardContent>
+                                    </CardActionArea>
                                     <div className="contactBodyBtnGroup">
-                                        <button  onClick={()=>showModal(val.tel)} ><LocalPhoneIcon /></button>
-                                        <button  onClick={()=>showModalemail(val.email)}><EmailIcon /></button>
+                                        <button onClick={() => showModal(val.tel)} ><LocalPhoneIcon /></button>
+                                        <button onClick={() => showModalemail(val.email)}><EmailIcon /></button>
                                     </div>
-                                </div>
+                                </Card>
                             ))
                         }
                         <Button variant="outlined" style={{ width: '100%', marginTop: '20px' }}>View More</Button>
@@ -213,21 +219,25 @@ const Dashboard = () => {
                         </div>
                         {
                             contacts.map((val) => (
-                                <div className="contactBody" key={val.id}>
+                                <Card className="contactBody" key={val.id}>
                                     <img src={val.img} alt="rasm" />
-                                    <div className="contactBodyTitle">
-                                        <h6>{val.name}</h6>
-                                        <p>{val.title}</p>
-                                    </div>
+                                    <CardActionArea>
+                                        <CardContent>
+                                            <div className="contactBodyTitle">
+                                                <h6>{val.name}</h6>
+                                                <p>{val.title}</p>
+                                            </div>
+                                        </CardContent>
+                                    </CardActionArea>
                                     <div className="contactBodyBtnGroup">
                                         {
                                             val.messege ?
                                                 <button><DoneAllIcon /></button>
                                                 :
-                                                <button onClick={()=>mailclick(val)} ><EmailIcon /></button>
+                                                <button onClick={() => mailclick(val)} ><EmailIcon /></button>
                                         }
                                     </div>
-                                </div>
+                                </Card>
                             ))
                         }
                         <Button variant="outlined" style={{ width: '100%', marginTop: '20px' }}>View More</Button>

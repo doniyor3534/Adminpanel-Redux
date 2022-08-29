@@ -15,6 +15,8 @@ import { useSelector } from 'react-redux';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { Button, Drawer, Empty } from 'antd';
+import Card from '@mui/material/Card';
+import { CardActionArea, CardContent, CardMedia } from '@mui/material';
 
 
 
@@ -22,22 +24,22 @@ const Email = () => {
     const { comments } = useSelector(state => state)
     const [emailpagenation, setEmailpagenation] = useState(1)
     const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('right');
+    const [placement] = useState('right');
     const showDrawer = () => {
         setVisible(true);
     };
     const onClose = () => {
         setVisible(false);
     };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
     return (
         <div className='emailpage'>
             <div className="emailcenterpage">
 
                 <div className="dashboardhed">
-                   
+
                     <h1 className='h1'>Email</h1>
                     <Button type="primary" style={{ marginRight: '30px' }} onClick={showDrawer}>
                         ....
@@ -93,54 +95,90 @@ const Email = () => {
                                         {
                                             emailpagenation === 1 ?
                                                 comments.map((val) => (
-                                                    <div className="bodyCard" key={val.id}>
-                                                        <img src={val.img} alt="rasm" />
-                                                        <div className="bodycardTitle">
-                                                            <h6>{val.name}</h6>
-                                                            <p>{val.comment}</p>
-                                                        </div>
-                                                        <div className="bodycardright">
-                                                            <p>1h</p>
-                                                            <div className="bodycardrightBtnGroup">
-                                                                <StarIcon />
-                                                                <AttachFileIcon />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ))
-                                                : emailpagenation === 2 ?
-                                                    comments.map((val) => (
-                                                        <div className="bodyCard" key={val.id}>
-                                                            <img src={val.img} alt="rasm" />
-                                                            <div className="bodycardTitle">
-                                                                <h6>{val.name}</h6>
-                                                                <p>{val.comment}</p>
-                                                            </div>
-                                                            <div className="bodycardright">
-                                                                <p>2h</p>
-                                                                <div className="bodycardrightBtnGroup">
-                                                                    <StarIcon />
-                                                                    <AttachFileIcon />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    ))
-                                                    : emailpagenation === 3 ?
-                                                        comments.map((val) => (
-                                                            <div className="bodyCard" key={val.id}>
-                                                                <img src={val.img} alt="rasm" />
+                                                    <Card className="bodyCard" key={val.id}>
+                                                        <CardActionArea className='bodyCard2'>
+                                                            <CardMedia
+                                                                component='img'
+                                                                height="140"
+                                                                image={val.img}
+                                                                alt="green iguana"
+                                                            />
+                                                            {/* <img src={val.img} alt="rasm" /> */}
+                                                            <CardContent>
                                                                 <div className="bodycardTitle">
-                                                                    <h6>{val.name}</h6>
+                                                                    <h2>{val.name}</h2>
                                                                     <p>{val.comment}</p>
+                                                                    <h6 className='gery '>{val.email}</h6>
+                                                                    <h6  className='gery'>{val.tel}</h6>
                                                                 </div>
+                                                            </CardContent>
                                                                 <div className="bodycardright">
-                                                                    <p>3h</p>
+                                                                    <p>1h</p>
                                                                     <div className="bodycardrightBtnGroup">
                                                                         <StarIcon />
                                                                         <AttachFileIcon />
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                        </CardActionArea>
+                                                    </Card>
+                                                ))
+                                                : emailpagenation === 2 ?
+                                                    comments.map((val) => (
+                                                        <Card className="bodyCard" key={val.id}>
+                                                        <CardActionArea className='bodyCard2'>
+                                                            <CardMedia
+                                                                component='img'
+                                                                height="140"
+                                                                image={val.img}
+                                                                alt="green iguana"
+                                                            />
+                                                            {/* <img src={val.img} alt="rasm" /> */}
+                                                            <CardContent>
+                                                                <div className="bodycardTitle">
+                                                                    <h2>{val.name}</h2>
+                                                                    <p>{val.comment}</p>
+                                                                    <h6 className='gery '>{val.email}</h6>
+                                                                    <h6  className='gery'>{val.tel}</h6>
+                                                                </div>
+                                                            </CardContent>
+                                                                <div className="bodycardright">
+                                                                    <p>1h</p>
+                                                                    <div className="bodycardrightBtnGroup">
+                                                                        <StarIcon />
+                                                                        <AttachFileIcon />
+                                                                    </div>
+                                                                </div>
+                                                        </CardActionArea>
+                                                    </Card>
+                                                    ))
+                                                    : emailpagenation === 3 ?
+                                                        comments.map((val) => (
+                                                            <Card className="bodyCard" key={val.id}>
+                                                            <CardActionArea className='bodyCard2'>
+                                                                <CardMedia
+                                                                    component='img'
+                                                                    height="140"
+                                                                    image={val.img}
+                                                                    alt="green iguana"
+                                                                />
+                                                                {/* <img src={val.img} alt="rasm" /> */}
+                                                                <CardContent>
+                                                                    <div className="bodycardTitle">
+                                                                        <h2>{val.name}</h2>
+                                                                        <p>{val.comment}</p>
+                                                                        <h6 className='gery '>{val.email}</h6>
+                                                                        <h6  className='gery'>{val.tel}</h6>
+                                                                    </div>
+                                                                </CardContent>
+                                                                    <div className="bodycardright">
+                                                                        <p>1h</p>
+                                                                        <div className="bodycardrightBtnGroup">
+                                                                            <StarIcon />
+                                                                            <AttachFileIcon />
+                                                                        </div>
+                                                                    </div>
+                                                            </CardActionArea>
+                                                        </Card>
                                                         ))
                                                         : 'ddddddd'
                                         }

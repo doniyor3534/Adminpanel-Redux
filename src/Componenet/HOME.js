@@ -9,7 +9,7 @@ import Kanban from './Kanban';
 import Invoice from './Invoice';
 import Banking from './Banking';
 import Ticketing from './Ticketing';
-import { Drawer, BackTop } from 'antd';
+import { Drawer } from 'antd';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { Loaderfun } from '../redux/action/Action';
@@ -25,17 +25,17 @@ const HOME = () => {
         }, 1000)
     }, [])
     const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('left');
+    const [placement] = useState('left');
     const showDrawer = () => {
         setVisible(!visible);
     };
     const onClose = () => {
         setVisible(false);
     };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
-    console.log(loader);
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
+   
     return (
         <div className='home'>
             <div className="saitbarLg">
@@ -44,8 +44,8 @@ const HOME = () => {
             {
                 loader ?
                     <div className="loaderCard">
-                        <div class="spinner-border text-primary " role="status">
-                            <span class="visually-hidden">Loading...</span>
+                        <div className="spinner-border text-primary " role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </div>
                     :''
