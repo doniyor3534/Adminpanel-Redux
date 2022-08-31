@@ -23,7 +23,7 @@ const HOME = () => {
         setTimeout(() => {
             dispatch(Loaderfun())
         }, 1000)
-    }, [])
+    },[])
     const [visible, setVisible] = useState(false);
     const [placement] = useState('left');
     const showDrawer = () => {

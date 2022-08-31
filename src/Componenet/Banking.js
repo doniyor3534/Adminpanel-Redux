@@ -84,7 +84,7 @@ const DemoBidirectionalBar = () => {
 };
 // /////////////////////////////////////////////////////////////////////////////
 const Banking = () => {
-    const { comments } = useSelector(state => state)
+    const {  } = useSelector(state => state)
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);
@@ -103,9 +103,9 @@ const Banking = () => {
     const onClose = () => {
         setVisible(false);
     };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
     return (
         <div className='banking'>
             <div className="dashboardhed">

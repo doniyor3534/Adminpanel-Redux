@@ -11,11 +11,12 @@ import EmailIcon from '@mui/icons-material/Email';
 import { useDispatch, useSelector } from 'react-redux';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Saitbarrightdashboard } from './ALL';
-import { Drawer, Button, Modal } from 'antd';
-import { Mailfun } from '../redux/action/Action';
+import { Drawer, Button, Modal, Empty } from 'antd';
+import { ADD, Mailfun } from '../redux/action/Action';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { CardActionArea } from '@mui/material';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -46,7 +47,7 @@ export const options = {
     series: { 5: { type: "line" } },
 };
 const Dashboard = () => {
-    const { contacts } = useSelector(state => state)
+    const { contacts, dashHedCardsMas, comments } = useSelector(state => state)
     const dispatch = useDispatch()
     const [visible, setVisible] = useState(false);
     const [placement] = useState('right');
@@ -59,6 +60,19 @@ const Dashboard = () => {
     // const onChange = (e) => {
     //     setPlacement(e.target.value);
     // };
+
+    // ///////////Alert/////
+
+    const AlertOK = () => {
+        toast.success('Yuklandi')
+    }
+    // const Alerterr = () => {
+    //     toast.error('Error')
+    // }
+    // const AlertWar = () => {
+    //     toast.warning('Warning')
+    // }
+    // ///////////Alert/////
     //////////////////modal tel//
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [modaltel, setModaltel] = useState({ tel: '' });
@@ -70,6 +84,10 @@ const Dashboard = () => {
         setIsModalVisible(true);
         setModaltel(val)
     };
+    const showModalForm = () => {
+        setIsModalVisible(true);
+        setModaltel('modalform')
+    };
     const handleOk = () => {
         setIsModalVisible(false);
     };
@@ -80,6 +98,30 @@ const Dashboard = () => {
     const mailclick = (id) => {
         dispatch(Mailfun(id))
     }
+    /////////////////////modal form///
+    const [input, setInput] = useState({
+        id: null,
+        name: '',
+        comment: '',
+        email: '',
+        foiz: '',
+        img: '',
+        narx: null,
+        tel: null
+    })
+    const inputfun = (e) => {
+        setInput({ ...input, [e.target.name]: e.target.value })
+        AlertOK()
+    }
+    const inputfunImg = (e) => {
+        setInput({ ...input, img: URL.createObjectURL(e.target.files[0]) })
+    }
+    const send = () => {
+        dispatch(ADD({ ...input, id: new Date().getTime() }))
+        AlertOK()
+    }
+    
+   
     return (
         <div className='dashboard'>
             <div className="dashboardleft">
@@ -90,34 +132,22 @@ const Dashboard = () => {
                     </Button>
                 </div>
                 <div className="proect_cards">
-                    <div className="proect_card">
-                        <img src="./img/40-bag.svg" alt="" />
-                        <div className="body">
-                            <p>proect</p>
-                            <h4>932</h4>
-                        </div>
-                    </div>
-                    <div className="proect_card">
-                        <img src="./img/38-file.svg" alt="" />
-                        <div className="body">
-                            <p>proect</p>
-                            <h4>932</h4>
-                        </div>
-                    </div>
-                    <div className="proect_card">
-                        <img src="./img/49-graph.svg" alt="" />
-                        <div className="body">
-                            <p>proect</p>
-                            <h4>932</h4>
-                        </div>
-                    </div>
-                    <div className="proect_card">
-                        <img src="./img/investments.svg" alt="" />
-                        <div className="body">
-                            <p>proect</p>
-                            <h4>932</h4>
-                        </div>
-                    </div>
+
+                    {
+                        dashHedCardsMas.map((val) => (
+                            <Card className="proect_card" key={val.id}>
+                                <CardActionArea>
+                                    <CardContent>
+                                        <img src={val.img} alt="" />
+                                        <div className="body">
+                                            <p>{val.name}</p>
+                                            <h4>{val.korsatkich}</h4>
+                                        </div>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        ))
+                    }
                 </div>
                 <div className="activity">
                     <div className="activity_head">
@@ -185,27 +215,30 @@ const Dashboard = () => {
                             <div className="contactTitle">
                                 <h5>Contacts</h5>
                                 <h4>You have <b><sup style={{ color: 'green' }}>{contacts.length}</sup></b> contacts</h4>
+                                <Button onClick={showModalForm} >+</Button>
                             </div>
 
                         </div>
                         {
-                            contacts.map((val) => (
-                                <Card className="contactBody" key={val.id}>
-                                    <img src={val.img} alt="rasm" />
-                                    <CardActionArea >
-                                        <CardContent>
-                                            <div className="contactBodyTitle">
-                                                <h6>{val.name}</h6>
-                                                <p>{val.title}</p>
-                                            </div>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <div className="contactBodyBtnGroup">
-                                        <button onClick={() => showModal(val.tel)} ><LocalPhoneIcon /></button>
-                                        <button onClick={() => showModalemail(val.email)}><EmailIcon /></button>
-                                    </div>
-                                </Card>
-                            ))
+                            comments.length > 0 ?
+                                comments.map((val) => (
+                                    <Card className="contactBody" key={val.id}>
+                                        <img src={val.img} alt="rasm" />
+                                        <CardActionArea >
+                                            <CardContent>
+                                                <div className="contactBodyTitle">
+                                                    <h6>{val.name}</h6>
+                                                    <p>{val.title}</p>
+                                                </div>
+                                            </CardContent>
+                                        </CardActionArea>
+                                        <div className="contactBodyBtnGroup">
+                                            <button onClick={() => showModal(val.tel)} ><LocalPhoneIcon /></button>
+                                            <button onClick={() => showModalemail(val.email)}><EmailIcon /></button>
+                                        </div>
+                                    </Card>
+                                ))
+                                : <Empty />
                         }
                         <Button variant="outlined" style={{ width: '100%', marginTop: '20px' }}>View More</Button>
                     </div>
@@ -256,8 +289,32 @@ const Dashboard = () => {
             </Drawer>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <p>tell ... / Massege...</p>
-                <h1 className='tel'>{modaltel}</h1>
+                {
+                    modaltel === 'modalform' ?
+                        <>
+                            <form onSubmit={send} >
+                                <label htmlFor="Name">Name</label>
+                                <input type="text" className='form-control  my-2' placeholder='Name' name='name' onChange={inputfun} value={input.name} />
+                                <label htmlFor="email">Email</label>
+                                <input type="email" className='form-control  my-2' placeholder='Email' name='email' onChange={inputfun} value={input.email} />
+                                <label htmlFor="commint" >Commint</label>
+                                <input type="text" className='form-control  my-2' placeholder='commint' name='comment' onChange={inputfun} value={input.comment} />
+                                <label htmlFor="Foiz">Foiz</label>
+                                <input type="number" className='form-control my-2' placeholder='...%' name='foiz' onChange={inputfun} value={input.foiz} />
+                                <label htmlFor="img">Image</label>
+                                <input type="file" className='form-control my-2' placeholder='img' name='img' onChange={inputfunImg} />
+                                <label htmlFor="narx">Narx</label>
+                                <input type="number" className='form-control my-2' placeholder='narx' name='narx' onChange={inputfun} value={input.narx} />
+                                <label htmlFor="tel">Tel</label>
+                                <input type="number" className='form-control my-2' placeholder='+998....' name='tel' onChange={inputfun} value={input.tel} />
+                                <button className='btn btn-primary w-50 my-3' >Add</button>
+                            </form>
+                            <img src="C:\\fakepath\\photo_2022-05-10_07-57-00.jpg" alt="" />
+                        </>
+                        : <h1 className='tel'>{modaltel}</h1>
+                }
             </Modal>
+            <ToastContainer/>
         </div>
     );
 };

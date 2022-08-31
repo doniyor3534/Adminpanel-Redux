@@ -8,6 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './store';
 import 'antd/dist/antd.css'; 
 import 'antv/dist/antv.css'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -14,7 +14,7 @@ import { Modal, Empty } from 'antd';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Card from '@mui/material/Card';
 import { CardActionArea } from '@mui/material';
-
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -47,36 +47,18 @@ const Contact = () => {
     // const onFormLayoutChange = ({ size }) => {
     //     setComponentSize(size);
     // };
-    // ///////////upload//////////
-    // const props = {
-    //     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-    //     listType: 'picture',
+       // ///////////Alert/////
 
-    //     beforeUpload(file) {
-    //         return new Promise((resolve) => {
-    //             const reader = new FileReader();
-    //             reader.readAsDataURL(file);
-
-    //             reader.onload = () => {
-    //                 const img = document.createElement('img');
-    //                 img.src = reader.result;
-
-    //                 img.onload = () => {
-    //                     const canvas = document.createElement('canvas');
-    //                     canvas.width = img.naturalWidth;
-    //                     canvas.height = img.naturalHeight;
-    //                     const ctx = canvas.getContext('2d');
-    //                     ctx.drawImage(img, 0, 0);
-    //                     ctx.fillStyle = 'red';
-    //                     ctx.textBaseline = 'middle';
-    //                     ctx.font = '33px Arial';
-    //                     ctx.fillText('Ant Design', 20, 20);
-    //                     canvas.toBlob((result) => resolve(result));
-    //                 };
-    //             };
-    //         });
-    //     },
-    // };
+       const AlertOK = () => {
+        toast.success('Yuklandi')
+    }
+    // const Alerterr = () => {
+    //     toast.error('Error')
+    // }
+    // const AlertWar = () => {
+    //     toast.warning('Warning')
+    // }
+    // ///////////Alert/////
     // ///////////////////inputfun/////
     const inputfun = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
@@ -86,6 +68,7 @@ const Contact = () => {
      }
     const send = () => {
         dispatch(ADD({ ...input, id: new Date().getTime() }))
+        AlertOK()
     }
     const deletFun = (id) => {
         dispatch(DEL(id))
@@ -173,6 +156,7 @@ const Contact = () => {
                 </form>
                 <img src="C:\\fakepath\\photo_2022-05-10_07-57-00.jpg" alt="" />
             </Modal>
+            <ToastContainer/>
         </div>
     );
 };

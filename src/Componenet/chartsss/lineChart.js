@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {
   LineChart,
   Line,
@@ -7,9 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Brush,
-  AreaChart,
-  Area,
-  ResponsiveContainer,BarChart, Bar, Legend
+  ResponsiveContainer,BarChart, Bar
 } from 'recharts';
 
 
@@ -122,27 +120,6 @@ export const Example =()=> {
 
 // ///////////////////////////////
 
-
-const data2 = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  }
-];
 
 export const Minichart=()=> {
  

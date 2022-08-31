@@ -22,9 +22,9 @@ const Ticketing = () => {
             address: `-$${val.narx}`,
         })
     ))
-    const handleChange = (value) => {
-        console.log(`selected ${value}`);
-    };
+    // const handleChange = (value) => {
+    //     console.log(`selected ${value}`);
+    // };
     const { Option } = Select;
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);

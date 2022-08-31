@@ -28,7 +28,13 @@ const initialData = {
       {id:3,rangi:'blue',name:'Ticket Solds',soni:720},
     ],
     loader:true,
-    Emailmassiv:JSON.parse(localStorage.getItem ('emailmassiv'))|| []
+    Emailmassiv:JSON.parse(localStorage.getItem ('emailmassiv'))|| [],
+    dashHedCardsMas:[
+      {id:0,name:'Progect1',korsatkich:932,img:'./img/40-bag.svg'},
+      {id:1,name:'Progect2',korsatkich:9352,img:'./img/38-file.svg'},
+      {id:2,name:'Progect3',korsatkich:732,img:'./img/49-graph.svg'},
+      {id:3,name:'Progect4',korsatkich:232,img:'./img/investments.svg'},
+    ]
 }
 
 const todoRuducers = (state=initialData,{type,payload}) =>{

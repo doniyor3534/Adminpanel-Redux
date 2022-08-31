@@ -323,9 +323,12 @@ select {
 
 
 .proect_card {
-  padding: 20px;
   background: #F9FAFF;
   cursor: pointer;
+}
+.proect_card .css-46bh2p-MuiCardContent-root {
+  padding: 20px;
+  height: 100% !important;
 }
 
 .proect_card .body {
@@ -463,6 +466,10 @@ select {
   border-radius: 5px;
   background-color: #5149E4;
   color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
 }
 
 .contactBody {
@@ -1120,11 +1127,10 @@ select {
   box-shadow: #3d37b666 1px 1px 10px;
 }
 
-.tab1Card>img {
+.tab1Card   img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  transform: translateY(-50%);
   border: 1px solid rgb(206, 205, 205);
 }
 
