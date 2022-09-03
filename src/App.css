@@ -1,3 +1,7 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~antd/dist/antd.css'; 
+@import '~antv/dist/antv.css';
+@import '~react-toastify/dist/ReactToastify.css';
 *{
   margin: 0;
   padding: 0;

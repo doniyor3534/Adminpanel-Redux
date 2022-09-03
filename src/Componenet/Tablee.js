@@ -23,15 +23,15 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { useSelector } from 'react-redux';
 
-function createData(name, comment, narx, foiz, img) {
-    return {
-        name,
-        comment,
-        narx,
-        foiz,
-        img,
-    };
-}
+// function createData(name, comment, narx, foiz, img) {
+//     return {
+//         name,
+//         comment,
+//         narx,
+//         foiz,
+//         img,
+//     };
+// }
 
 
 function descendingComparator(a, b, orderBy) {

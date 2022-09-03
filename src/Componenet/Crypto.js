@@ -65,16 +65,16 @@ export const DemoArea = () => {
 const Crypto = () => {
   const { cryptocardmass } = useSelector(state => state)
   const [visible, setVisible] = useState(false);
-  const [placement, setPlacement] = useState('right');
+  const [placement] = useState('right');
   const showDrawer = () => {
       setVisible(true);
   };
   const onClose = () => {
       setVisible(false);
   };
-  const onChange = (e) => {
-      setPlacement(e.target.value);
-  };
+  // const onChange = (e) => {
+  //     setPlacement(e.target.value);
+  // };
   return (
     <div className='cryptopage'>
       <div className="cryptoHome">

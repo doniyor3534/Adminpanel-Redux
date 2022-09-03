@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import './Componenet/STYLE.css'
+import './Componenet/style.css'
 import HOME from './Componenet/HOME';
 const App = () => {
   return (

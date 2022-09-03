@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CircleIcon from '@mui/icons-material/Circle';
-import { Button, Drawer, Form, Input, InputNumber, Popconfirm, Select, Table, Typography } from 'antd';
+import { Button, Drawer, Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import { useState } from 'react';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import { TicketingSaitbar } from './ALL';
@@ -25,7 +25,6 @@ const Ticketing = () => {
     // const handleChange = (value) => {
     //     console.log(`selected ${value}`);
     // };
-    const { Option } = Select;
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);
     const [editingKey, setEditingKey] = useState('');
@@ -99,7 +98,7 @@ const Ticketing = () => {
                             Save
                         </Typography.Link>
                         <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
-                            <a>Cancel</a>
+                            <a href='.'>Cancel</a>
                         </Popconfirm>
                     </span>
                 ) : (
@@ -163,16 +162,16 @@ const Ticketing = () => {
     };
     // //////////////////////////
     const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('right');
+    const [placement] = useState('right');
     const showDrawer = () => {
         setVisible(true);
     };
     const onClose = () => {
         setVisible(false);
     };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
 
 
     return (

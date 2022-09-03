@@ -1,10 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 
 import DonutChart from "react-donut-chart";
-import { Color } from 'igniteui-react-core';
 
 const reactDonutChartdata = [
   {
@@ -59,7 +57,7 @@ const reactDonutChartHandleClick = (item, toggled) => {
 };
 let reactDonutChartStrokeColor = "#FFFFFF";
 const reactDonutChartOnMouseEnter = (item) => {
-  let color = reactDonutChartdata.find((q) => q.label === item.label).color;
+  const color = reactDonutChartdata.find((q) => q.label === item.label).color;
   reactDonutChartStrokeColor = color;
 };
 

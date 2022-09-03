@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Navbarpage, Saitbar } from './ALL';
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from './Dashboard';
@@ -9,9 +9,10 @@ import Kanban from './Kanban';
 import Invoice from './Invoice';
 import Banking from './Banking';
 import Ticketing from './Ticketing';
-import { Drawer } from 'antd';
+import { Drawer, Space, Spin } from 'antd';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { Loaderfun } from '../redux/action/Action';
 
 
@@ -20,10 +21,15 @@ const HOME = () => {
     const { loader } = useSelector(state => state)
     const dispatch = useDispatch()
     useEffect(() => {
+       const times = () =>{
         setTimeout(() => {
             dispatch(Loaderfun())
         }, 1000)
-    },[])
+       }
+       times()
+       return times()
+    }, [])
+
     const [visible, setVisible] = useState(false);
     const [placement] = useState('left');
     const showDrawer = () => {
@@ -35,7 +41,7 @@ const HOME = () => {
     // const onChange = (e) => {
     //     setPlacement(e.target.value);
     // };
-   
+
     return (
         <div className='home'>
             <div className="saitbarLg">
@@ -43,12 +49,12 @@ const HOME = () => {
             </div>
             {
                 loader ?
-                    <div className="loaderCard">
-                        <div className="spinner-border text-primary " role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
+                    <div className="loaderCardD">
+                        <Space size="middle">
+                            <Spin className='loadericon' size="large" />
+                        </Space>
                     </div>
-                    :''
+                :''
             }
             <div className="homeceneter">
                 <button type="primary" className='burgermenu' style={{ marginRight: '10px' }} onClick={showDrawer}>

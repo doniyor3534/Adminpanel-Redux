@@ -45,23 +45,23 @@ export const Navbarpage = () => {
     const handleChange = (event) => {
         setUZ(event.target.value);
     };
-    const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('left');
+    const [ setVisible] = useState(false);
+    // const [placement, setPlacement] = useState('left');
     const showDrawer = () => {
         setVisible(true);
     };
-    const onClose = () => {
-        setVisible(false);
-    };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
-    const [top, setTop] = useState(10);
-    const [bottom, setBottom] = useState(10);
-    const drownclik = () => {
-        setTop(top + 10)
-        showDrawer()
-    }
+    // const onClose = () => {
+    //     setVisible(false);
+    // };
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
+    // const [top, setTop] = useState(10);
+    // const [bottom, setBottom] = useState(10);
+    // const drownclik = () => {
+    //     setTop(top + 10)
+    //     showDrawer()
+    // }
     // /////////search//
     const renderTitle = (title) => (
         <span>

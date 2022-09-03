@@ -55,9 +55,9 @@ const Contact = () => {
     // const Alerterr = () => {
     //     toast.error('Error')
     // }
-    // const AlertWar = () => {
-    //     toast.warning('Warning')
-    // }
+    const AlertWar = () => {
+        toast.warning('Dlete')
+    }
     // ///////////Alert/////
     // ///////////////////inputfun/////
     const inputfun = (e) => {
@@ -72,6 +72,7 @@ const Contact = () => {
     }
     const deletFun = (id) => {
         dispatch(DEL(id))
+        AlertWar()
     }
     
     console.log();

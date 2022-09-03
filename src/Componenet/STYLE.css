@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
   list-style: none;
   font-family: sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.loaderCard{
+.loaderCardD{
   position: fixed;
   top: 0;
   left: 0;
@@ -19,6 +20,14 @@
   justify-content: center;
   align-items: center;
   z-index: 555;
+}
+.loadericon .ant-spin-dot-spin{
+  width: 150px;
+  height: 150px;
+}
+.loadericon .ant-spin-dot-item{
+  width: 50px !important;
+  height: 50px !important;
 }
 .spinner-border{
   width: 100px !important;
@@ -114,7 +123,7 @@ select {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content:flex-end;
   gap: 20px;
 }
 
@@ -347,7 +356,7 @@ select {
 .activity_head {
   display: flex;
   align-items: center;
-  justify-content: start;
+  /* justify-content: start; */
 }
 
 .activity_head h3 {
@@ -922,7 +931,7 @@ select {
 .contactcadFooter {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: 15px;
   color: #8A96B1;
 }
@@ -1310,7 +1319,7 @@ select {
   height: 150px;
   display: grid;
   grid-template-columns: 20% 30% 50%;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .invoiceSaitbar {

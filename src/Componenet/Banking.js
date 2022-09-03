@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { BankingSaitbar } from './ALL';
 import { Select, Button, Drawer } from 'antd';
 import { BidirectionalBar } from '@ant-design/plots';
@@ -84,7 +83,7 @@ const DemoBidirectionalBar = () => {
 };
 // /////////////////////////////////////////////////////////////////////////////
 const Banking = () => {
-    const {  } = useSelector(state => state)
+
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);
@@ -96,7 +95,7 @@ const Banking = () => {
     // ///////////table
 
     const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('right');
+    const [placement] = useState('right');
     const showDrawer = () => {
         setVisible(true);
     };

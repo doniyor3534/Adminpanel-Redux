@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import SendIcon from '@mui/icons-material/Send';
@@ -110,16 +110,16 @@ const DemoLine = () => {
 
 const Invoice = () => {
     const [visible, setVisible] = useState(false);
-    const [placement, setPlacement] = useState('right');
+    const [placement] = useState('right');
     const showDrawer = () => {
         setVisible(true);
     };
     const onClose = () => {
         setVisible(false);
     };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
+    // const onChange = (e) => {
+    //     setPlacement(e.target.value);
+    // };
     return (
         <div className='invoice'>
             <div className="invoiceLeft">
